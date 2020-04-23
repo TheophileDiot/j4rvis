@@ -30,7 +30,7 @@ module.exports = {
                          + "Et le Tutoriel : https://youtu.be/j2ZEM7RxYK4\n\n"
                         
                         
-                         + "**Règles de base du LG UHC**\n"
+                         + "**Règles de base du LG UHC 1.8.9**\n"
                         
                          + "Le LG UHC se présente un peu comme une partie de loups-garous classique, à la différence que cela se passe dans Minecraft et que, pour "
                          + "tuer des joueurs, il faut les combattre. Tous les joueurs ont accès, à chaque début de journée, à un vote "
