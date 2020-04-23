@@ -23,7 +23,7 @@ module.exports = {
                         
                          + "**Pour le LG UHC**\n"
                         
-                         + "Quelques liens utiles qui vont te servir pour l'installation : "
+                         + "Quelques liens utiles qui vont te servir pour l'installation : \n"
                          + "  - Forge : https://files.minecraftforge.net/\n"
                          + "  - MumbleLink : https://tinyurl.com/y8d8fjq4\n"
                          + "  - Mumble : https://www.mumble.com/\n"
