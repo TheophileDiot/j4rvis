@@ -32,6 +32,7 @@ module.exports = {
 
     const modoLoupsGarous = message.guild.roles.cache.find(r => r.name == "Modérateur_Loups_garous");
     const modoSport = message.guild.roles.cache.find(r => r.name == "Modérateur_Sport");
+    const modoCycle = message.guild.roles.cache.find(r => r.name == "Modérateur_Cycle");
     const modoJdr = message.guild.roles.cache.find(r => r.name == "Modérateur_JDR");
     const modoCodingDojo = message.guild.roles.cache.find(r => r.name == "Modérateur_Coding_Dojo");
 
@@ -46,6 +47,7 @@ module.exports = {
           !member.roles.cache.has(administrateur.id) &&
           !member.roles.cache.has(modoLoupsGarous.id) &&
           !member.roles.cache.has(modoSport.id) &&
+          !member.roles.cache.has(modoCycle.id) &&
           !member.roles.cache.has(modoJdr.id) &&
           !member.roles.cache.has(modoCodingDojo.id)
         ) {
