@@ -28,6 +28,7 @@ module.exports = async (bot, messageReaction, user) => {
 
     const modoLoupsGarous = message.guild.roles.cache.find(r => r.name == "Modérateur_Loups_garous");
     const modoSport = message.guild.roles.cache.find(r => r.name == "Modérateur_Sport");
+    const modoCycle = message.guild.roles.cache.find(r => r.name == "Modérateur_Cycle");
     const modoJdr = message.guild.roles.cache.find(r => r.name == "Modérateur_JDR");
     const modoCodingDojo = message.guild.roles.cache.find(r => r.name == "Modérateur_Coding_Dojo");
 
@@ -69,7 +70,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(cinema);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
@@ -142,7 +148,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(cinema);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
@@ -210,7 +221,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(cinema);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
@@ -283,7 +299,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(sport);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
@@ -382,7 +403,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(graphisme);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             message.channel
               .send(`${member.user} vous avez déjà ce rôle`)
               .then(msg => {
@@ -433,7 +459,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(cinema);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
@@ -501,7 +532,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(cinema);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
@@ -570,7 +606,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(cinema);
           }
 
-          if (member.roles.cache.has(cycle.id)) {
+          if (member.roles.cache.has(modoCycle.id)) {
+            message.channel.send(
+              `${member.user} vous êtes modérateur de l'activité ${cycle.name}, vous ne pouvez changer d'activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+            );
+            break;
+          } else if (member.roles.cache.has(cycle.id)) {
             member.roles.remove(cycle);
           }
 
