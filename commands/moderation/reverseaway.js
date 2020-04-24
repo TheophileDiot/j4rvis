@@ -20,7 +20,7 @@ module.exports = {
 
     try {
       message.guild.members.cache.forEach((member, key) => {
-        if (!member.user.bot && !member.roles.cache.has(absent.id)) {
+        if (!member.user.bot && member.roles.cache.has(absent.id)) {
           
           member.roles.remove(absent)
 

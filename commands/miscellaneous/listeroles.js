@@ -23,27 +23,19 @@ module.exports = {
 
   run: async (bot, message, args) => {
     try {
-      const channel_change = message.guild.channels.cache.get(
-        "700683266373582878"
-      );
+      const channel_change = message.guild.channels.cache.get("700683266373582878");
       /*const channel_test = message.guild.channels.cache.get(
         "700751796808843336"
       );*/
 
-      const loupsGarous = message.guild.roles.cache.find(
-        r => r.name == "Loups_garous"
-      );
+      const loupsGarous = message.guild.roles.cache.find(r => r.name == "Loups_garous");
       //const revision = message.guild.roles.cache.find(r => r.name == "Révision");
       const sport = message.guild.roles.cache.find(r => r.name == "Sport");
       const cinema = message.guild.roles.cache.find(r => r.name == "Cinéma");
       const cycle = message.guild.roles.cache.find(r => r.name == "Cycle");
       const jdr = message.guild.roles.cache.find(r => r.name == "JDR");
-      const codingDojo = message.guild.roles.cache.find(
-        r => r.name == "Coding_Dojo"
-      );
-      const graphisme = message.guild.roles.cache.find(
-        r => r.name == "Graphisme"
-      );
+      const codingDojo = message.guild.roles.cache.find(r => r.name == "Coding_Dojo");
+      const graphisme = message.guild.roles.cache.find(r => r.name == "Graphisme");
 
       const loupsGarousEmoji = "🐺";
       //const revisionEmoji = "📖";
