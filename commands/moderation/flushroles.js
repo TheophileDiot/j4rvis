@@ -11,17 +11,17 @@ module.exports = {
 
   run: async (bot, message, args) => {
 
-    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]))
+    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    
+    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
         "Vous ne pouvez pas utiliser cette commande!"
       );
 
-    const enAttenteDeRole = message.guild.roles.cache.find(
-      r => r.name == "En_attente_de_rôle"
-    );
-    const loupsGarous = message.guild.roles.cache.find(
-      r => r.name == "Loups_garous"
-    );
+    const enAttenteDeRole = message.guild.roles.cache.find(r => r.name == "En_attente_de_rôle");
+    const absent = message.guild.roles.cache.find(r => r.name == "Absent");
+    
+    const loupsGarous = message.guild.roles.cache.find(r => r.name == "Loups_garous");
     const revision = message.guild.roles.cache.find(r => r.name == "Révision");
     const sport = message.guild.roles.cache.find(r => r.name == "Sport");
     const cinema = message.guild.roles.cache.find(r => r.name == "Cinéma");
@@ -36,7 +36,6 @@ module.exports = {
     const modoJdr = message.guild.roles.cache.find(r => r.name == "Modérateur_JDR");
     const modoCodingDojo = message.guild.roles.cache.find(r => r.name == "Modérateur_Coding_Dojo");
 
-    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
     const administrateur = message.guild.roles.cache.find(r => r.name == "Administrateur");
 
     try {
@@ -83,6 +82,10 @@ module.exports = {
             member.roles.remove(graphisme);
           }
 
+          if (member.roles.cache.has(absent.id)) {
+            member.roles.remove(absent);
+          }
+          
           member.roles.add(enAttenteDeRole);
         }
       });

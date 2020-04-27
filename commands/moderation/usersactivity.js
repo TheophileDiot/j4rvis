@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { yellow_j4arvis } = require("../../colours.json");
+const { yellow_j4rvis } = require("../../colours.json");
 
 module.exports = {
   config: {
@@ -13,7 +13,9 @@ module.exports = {
   
   run: async (bot, message, args) => {
     
-    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]))
+    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    
+    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
         "Vous ne pouvez pas utiliser cette commande!"
       );
@@ -32,7 +34,7 @@ module.exports = {
       const absent = message.guild.roles.cache.find(r => r.name == "Absent");
       
       let sEmbed = new MessageEmbed()
-        .setColor(yellow_j4arvis)
+        .setColor(yellow_j4rvis)
         .setTitle("Infos Activités")
         .setThumbnail("https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
         .setAuthor(`${message.guild.name} Info activités`, "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")

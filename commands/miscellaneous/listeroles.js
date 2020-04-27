@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { yellow_j4arvis } = require("../../colours.json");
+const { yellow_j4rvis } = require("../../colours.json");
 
 module.exports = {
   config: {
@@ -57,7 +57,7 @@ module.exports = {
       }
 
       embed
-        .setColor(yellow_j4arvis)
+        .setColor(yellow_j4rvis)
         .setAuthor(`${message.guild.me.displayName}`, message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .addField(
