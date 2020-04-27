@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { prefix } = require("../../botconfig.json");
 const { readdirSync } = require("fs");
 const { stripIndents } = require("common-tags");
-const { yellow_j4arvis } = require("../../colours.json");
+const { yellow_j4rvis } = require("../../colours.json");
 
 module.exports = {
   config: {
@@ -18,7 +18,7 @@ module.exports = {
     message.delete();
 
     const embed = new MessageEmbed()
-      .setColor(yellow_j4arvis)
+      .setColor(yellow_j4rvis)
       .setAuthor(`${message.guild.me.displayName} Help`, message.guild.iconURL)
       .setThumbnail(bot.user.displayAvatarURL);
 

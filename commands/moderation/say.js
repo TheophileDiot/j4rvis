@@ -10,7 +10,9 @@ module.exports = {
 
   run: async (bot, message, args) => {
     
-    if (!message.member.hasPermission(["MANAGE_MESSAGES", "ADMINISTRATOR"]))
+    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    
+    if (!message.member.hasPermission(["ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
         "Vous ne pouvez pas utiliser cette commande!"
       );

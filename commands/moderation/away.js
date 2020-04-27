@@ -1,6 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-const { yellow_j4arvis } = require("../../colours.json");
-
 module.exports = {
   config: {
     name: "away",
@@ -13,7 +10,9 @@ module.exports = {
 
   run: async (bot, message, args) => {
     
-    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]))
+    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    
+    if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
         "Vous ne pouvez pas utiliser cette commande!"
       );
