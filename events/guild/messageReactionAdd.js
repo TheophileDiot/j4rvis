@@ -502,6 +502,23 @@ module.exports = async (bot, messageReaction, user) => {
           break;
 
         case "👨‍💻":
+          
+          if (member.roles.cache.has(codingDojo.id)) {
+            message.channel
+              .send(`${member.user} vous avez déjà ce rôle`)
+              .then(msg => {
+                msg.delete({ timeout: 2500 });
+              });
+            break;
+          }
+          
+          var membresCodingDojo = message.guild.roles.cache.get(codingDojo.id).members.map(m=>m);
+          
+          if(membresCodingDojo.length >= 13) return message.channel.send(`La limite du nombre de personnes dans l'activité ${codingDojo.name} a été atteinte, vous ne pouvez plus rejoindre cette activité`)
+                                                      .then(msg => {
+                                                            msg.delete({ timeout: 5000 });
+                                                      });
+          
           if (member.roles.cache.has(enAttenteDeRole.id)) {
             member.roles.remove(enAttenteDeRole);
           }
@@ -554,24 +571,12 @@ module.exports = async (bot, messageReaction, user) => {
             member.roles.remove(graphisme);
           }
 
-          if (member.roles.cache.has(codingDojo.id)) {
-            message.channel
-              .send(`${member.user} vous avez déjà ce rôle`)
-              .then(msg => {
-                msg.delete({ timeout: 2500 });
-              });
-            break;
-          } else {
-            member.roles.add(codingDojo);
+          member.roles.add(codingDojo);
 
-            message.channel
-              .send(
-                `le rôle ${codingDojo.name} a été ajouté à ${member.nickname} avec succès`
-              )
+          message.channel.send(`le rôle ${codingDojo.name} a été ajouté à ${member.nickname} avec succès`)
               .then(msg => {
                 msg.delete({ timeout: 2500 });
               });
-          }
 
           break;
 
