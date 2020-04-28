@@ -7,9 +7,7 @@ module.exports = async bot => {
   
   console.log(`${bot.user.username} is online`);
   bot.user.setActivity("Sniping trollers", { type: "WATCHING" });
-  
-  // oskour
-  
+    
   try {
     
       const channel_change = bot.channels.cache.get("700683266373582878");
