@@ -10,7 +10,7 @@ module.exports = async bot => {
   
   // oskour
   
-  //try {
+  try {
     
       const channel_change = bot.channels.cache.get("700683266373582878");
       
@@ -22,7 +22,6 @@ module.exports = async bot => {
 
       channel_change.bulkDelete(lastMessage, true);
       
-    /*
       const guild = bot.guilds.cache.get("697723523472424970");
     
       const loupsGarous = guild.roles.cache.find(r => r.name == "Loups_garous");
@@ -76,5 +75,5 @@ module.exports = async bot => {
       });
     } catch (e) {
       console.log(e);
-    }*/
+    }
 };
