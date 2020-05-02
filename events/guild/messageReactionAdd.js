@@ -1,5 +1,3 @@
-const { prefix } = require("../../botconfig.json");
-
 module.exports = async (bot, messageReaction, user) => {
   try {
     const message = messageReaction.message;
