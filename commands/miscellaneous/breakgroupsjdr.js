@@ -21,16 +21,20 @@ module.exports = {
     
     try {
       
-      if(!member.roles.cache.has(jdr.id)) return message.channel.send("Vous ne faites pas partis de l'activité JDR !")
+      if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])){
+        
+        if(!member.roles.cache.has(jdr.id)) return message.channel.send("Vous ne faites pas partis de l'activité JDR !")
                                                   .then(msg => {
                                                     msg.delete({ timeout: 2500 });
                                                   });
-      
-      if(!member.roles.cache.has(modoJdr.id)) return message.channel.send("Vous devez être Modérateur_JDR pour exécuter cette commande !")
+        
+        if(!member.roles.cache.has(modoJdr.id)) return message.channel.send("Vous devez être Modérateur_JDR pour exécuter cette commande !")
                                                       .then(msg => {
                                                         msg.delete({ timeout: 2500 });
                                                       });
       
+      }
+        
       message.guild.members.cache.forEach((membre, key) => {
         if(membre.roles.cache.has(jdr.id)){
           if(membre.roles.cache.has(groupjdr1.id)){
