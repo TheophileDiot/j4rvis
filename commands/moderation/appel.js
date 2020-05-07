@@ -26,7 +26,9 @@ module.exports = {
       const presentEmoji = "✅";
       
       var presents_arr = [""];
-      var presents_str = "";
+      var away_arr = [""];
+      var away_str1 = "";
+      var away_str2 = "";
       
       let sEmbed = new MessageEmbed()
       .setColor(yellow_j4rvis)
@@ -37,6 +39,10 @@ module.exports = {
                       + "**Si vous n'ajoutez pas une réaction à temps, vous serrez mis absent pour la moitié du créneau**")
       .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
     
+      message.channel.send("@everyone Appel !").then(msg => {
+          msg.delete({ timeout: 5000 });
+        });
+      
       message.channel.send({ embed: sEmbed }).then(async msg => {
         await msg.react(presentEmoji);
         
@@ -53,14 +59,35 @@ module.exports = {
           
           presents_arr = presents_arr.sort();
           
-          for (var i in presents_arr) {
+          /*for (var i in presents_arr) {
             presents_str += presents_arr[i].concat("\n");
-          } 
+          }*/
+          
+          message.guild.members.cache.forEach((membre, key) => {
+            if(!presents_arr.includes(membre.nickname) && !membre.user.bot){
+              if(membre.nickname == null){
+                if(away_str1.length >= 1950){
+                  away_str2 += membre + "\n";
+                } else {
+                  away_str1 += membre + "\n";
+                }
+              } else {
+                if(away_str1.length >= 1950){
+                  away_str2 += membre.nickname.concat("\n");
+                } else {
+                  away_str1 += membre.nickname.concat("\n");
+                }
+              }
+            }
+          });
           
           msg.delete();
           message.channel.send("L'appel est fini !");
-          message.channel.send(`Les personnes présentes sont : \n ${presents_str}`);
-        }, 1200000);
+          message.channel.send(`Les personnes absentes sont : \n\n${away_str1}`);
+          if(away_str2 != ""){
+            message.channel.send(`${away_str2}`);
+          }
+        }, 5000);
       });
       
       message.delete();

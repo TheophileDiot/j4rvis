@@ -23,13 +23,15 @@ module.exports = async bot => {
       const guild = bot.guilds.cache.get("697723523472424970");
     
       const loupsGarous = guild.roles.cache.find(r => r.name == "Loups_garous");
-      //const revision = bot.roles.find(r => r.name == "Révision");
+      //const revision = guild.roles.cache.find(r => r.name == "Révision");
       const sport = guild.roles.cache.find(r => r.name == "Sport");
       const cinema = guild.roles.cache.find(r => r.name == "Cinéma");
       const cycle = guild.roles.cache.find(r => r.name == "Cycle");
       const jdr = guild.roles.cache.find(r => r.name == "JDR");
       const codingDojo = guild.roles.cache.find(r => r.name == "Coding_Dojo");
       const graphisme = guild.roles.cache.find(r => r.name == "Graphisme");
+      const chillCast = guild.roles.cache.find(r => r.name == "ChillCast");
+      const analyseVideo = guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
 
       const loupsGarousEmoji = "🐺";
       //const revisionEmoji = "📖";
@@ -39,6 +41,8 @@ module.exports = async bot => {
       const jdrEmoji = "🐉";
       const codingDojoEmoji = "👨‍💻";
       const graphismeEmoji = "✏️";
+      const chillCastEmoji = "<:CHILLCAST:707929193559883777>";
+      const analyseVideoEmoji = "📼";
 
       const embed = new MessageEmbed().setTitle("Rôles");
 
@@ -56,6 +60,8 @@ module.exports = async bot => {
              ${jdrEmoji} - ${jdr}
              ${codingDojoEmoji} - ${codingDojo}
              ${graphismeEmoji} - ${graphisme}
+             ${chillCastEmoji} - ${chillCast}
+             **Prochainement :** ${analyseVideoEmoji} - ${analyseVideo}
           `
         );
 
@@ -70,6 +76,8 @@ module.exports = async bot => {
         await msg.react(jdrEmoji);
         await msg.react(codingDojoEmoji);
         await msg.react(graphismeEmoji);
+        await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
+        //await msg.react(analyseVideoEmoji);
       });
     } catch (e) {
       console.log(e);
