@@ -36,6 +36,8 @@ module.exports = {
       const jdr = message.guild.roles.cache.find(r => r.name == "JDR");
       const codingDojo = message.guild.roles.cache.find(r => r.name == "Coding_Dojo");
       const graphisme = message.guild.roles.cache.find(r => r.name == "Graphisme");
+      const chillCast = message.guild.roles.cache.find(r => r.name == "ChillCast");
+      const analyseVideo = message.guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
 
       const loupsGarousEmoji = "🐺";
       //const revisionEmoji = "📖";
@@ -45,6 +47,8 @@ module.exports = {
       const jdrEmoji = "🐉";
       const codingDojoEmoji = "👨‍💻";
       const graphismeEmoji = "✏️";
+      const chillCastEmoji = "<:CHILLCAST:707929193559883777>";
+      const analyseVideoEmoji = "📼";
 
       const embed = new MessageEmbed().setTitle("Rôles");
 
@@ -70,6 +74,8 @@ module.exports = {
              ${jdrEmoji} - ${jdr}
              ${codingDojoEmoji} - ${codingDojo}
              ${graphismeEmoji} - ${graphisme}
+             ${chillCastEmoji} - ${chillCast}
+             **Prochainement :** ${analyseVideoEmoji} - ${analyseVideo}
           `
         );
 
@@ -85,6 +91,8 @@ module.exports = {
           await msg.react(jdrEmoji);
           await msg.react(codingDojoEmoji);
           await msg.react(graphismeEmoji);
+          await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
+          // await msg.react(analyseVideoEmoji);
         }
       });
     } catch (e) {
