@@ -14,6 +14,10 @@ module.exports = {
 
   run: async (bot, message, args) => {
 
+    const channel_appel = message.guild.channels.cache.get("709662934908928081");
+    
+    if(message.channel != channel_appel) return message.channel.send(`Vous ne lancer pas la commande dans le bon salon, le bon salon est ${channel_appel}.`);
+    
     const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
     
     if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
@@ -25,7 +29,7 @@ module.exports = {
       
       const presentEmoji = "✅";
       
-      var presents_arr = [""];
+      let presents_arr = [""];
       var away_arr = [""];
       var away_str1 = "";
       var away_str2 = "";
@@ -40,54 +44,64 @@ module.exports = {
       .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
     
       message.channel.send("@everyone Appel !").then(msg => {
-          msg.delete({ timeout: 5000 });
+          msg.delete({ timeout: 900000 });
         });
       
       message.channel.send({ embed: sEmbed }).then(async msg => {
+        
         await msg.react(presentEmoji);
         
         await bot.on('messageReactionAdd', (reaction, user) =>{
           if(!user.bot && reaction.emoji.name === "✅"){
             
-            const member = message.guild.members.cache.get(user.id);
+            var membre = message.guild.members.cache.get(user.id);
             
-            presents_arr.push(member.nickname);
+            if(membre.nickname == null || membre.nickname == undefined){
+              presents_arr.push(membre.user.name);
+            } else {
+              presents_arr.push(membre.nickname);
+            }
+            
           }
         });
         
         setTimeout(function(){
           
-          presents_arr = presents_arr.sort();
-          
           /*for (var i in presents_arr) {
             presents_str += presents_arr[i].concat("\n");
           }*/
           
+          var away_arr = [''];
+          
+          presents_arr = presents_arr.sort();
+          
           message.guild.members.cache.forEach((membre, key) => {
             if(!presents_arr.includes(membre.nickname) && !membre.user.bot){
-              if(membre.nickname == null){
-                if(away_str1.length >= 1950){
-                  away_str2 += membre + "\n";
-                } else {
-                  away_str1 += membre + "\n";
-                }
+              if(membre.nickname == null || membre.nickname == undefined){
+                away_arr.push(membre.user.tag);
               } else {
-                if(away_str1.length >= 1950){
-                  away_str2 += membre.nickname.concat("\n");
-                } else {
-                  away_str1 += membre.nickname.concat("\n");
-                }
+                away_arr.push(membre.nickname);
               }
             }
           });
           
+          away_arr = away_arr.sort();
+          
+          away_arr.forEach((arr, key) =>{
+            if(away_str1.length >= 1950){
+              away_str2 += arr.concat("\n");
+            } else {
+              away_str1 += arr.concat("\n");
+            }
+          });
+          
           msg.delete();
-          message.channel.send("L'appel est fini !");
-          message.channel.send(`Les personnes absentes sont : \n\n${away_str1}`);
+          message.channel.send("@everyone L'appel est fini !");
+          message.channel.send(`Les personnes absentes sont : \n${away_str1}`);
           if(away_str2 != ""){
             message.channel.send(`${away_str2}`);
           }
-        }, 5000);
+        }, 900000);
       });
       
       message.delete();
