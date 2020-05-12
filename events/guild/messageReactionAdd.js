@@ -204,7 +204,7 @@ module.exports = async (bot, messageReaction, user) => {
               break;
             } 
             
-            if(nbrmembres.size < 13){
+            if(nbrmembres.length < 13){
               member.roles.add(codingDojo);
 
               message.channel
@@ -274,7 +274,7 @@ module.exports = async (bot, messageReaction, user) => {
 
           break;
           
-        /*case "📼":
+        case "📼":
           
           if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
             if (member.roles.cache.has(analyseVideo.id)) {
@@ -296,7 +296,7 @@ module.exports = async (bot, messageReaction, user) => {
             }
           }
 
-          break;*/
+          break;
       }
     }
   } catch (e) {

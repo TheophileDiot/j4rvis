@@ -61,7 +61,7 @@ module.exports = async bot => {
              ${codingDojoEmoji} - ${codingDojo}
              ${graphismeEmoji} - ${graphisme}
              ${chillCastEmoji} - ${chillCast}
-             **Prochainement :** ${analyseVideoEmoji} - ${analyseVideo}
+             ${analyseVideoEmoji} - ${analyseVideo}
           `
         );
 
@@ -77,7 +77,7 @@ module.exports = async bot => {
         await msg.react(codingDojoEmoji);
         await msg.react(graphismeEmoji);
         await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
-        //await msg.react(analyseVideoEmoji);
+        await msg.react(analyseVideoEmoji);
       });
     } catch (e) {
       console.log(e);
