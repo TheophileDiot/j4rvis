@@ -170,15 +170,25 @@ module.exports = async (bot, messageReaction, user) => {
           
           if (!member.roles.cache.has(jdr.id)) {
             if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
-              member.roles.add(jdr);
+              var nbrmembres = message.guild.roles.cache.get(jdr.id).members.map(m=>m);
 
-              message.channel
-                .send(
-                  `le rôle ${jdr.name} a été ajouté à ${member.nickname} avec succès`
-                )
-                .then(msg => {
-                  msg.delete({ timeout: 2500 });
-                });
+              if(nbrmembres.length <= 15){
+                member.roles.add(jdr);
+
+                message.channel
+                  .send(
+                    `le rôle ${jdr.name} a été ajouté à ${member.nickname} avec succès`
+                  )
+                  .then(msg => {
+                    msg.delete({ timeout: 2500 });
+                  });
+              } else {
+                message.channel
+                  .send(`Vous ne pouvez pas rejoindre l'activité ${jdr.name} car la limite en nombre de membres a été atteinte !`)
+                  .then(msg => {
+                    msg.delete({ timeout: 2500 });
+                  });
+              } 
               
             }
           } else {
@@ -197,7 +207,7 @@ module.exports = async (bot, messageReaction, user) => {
             if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
               var nbrmembres = message.guild.roles.cache.get(codingDojo.id).members.map(m=>m);
 
-              if(nbrmembres.length < 13){
+              if(nbrmembres.length <= 13){
                 member.roles.add(codingDojo);
 
                 message.channel
@@ -292,6 +302,10 @@ module.exports = async (bot, messageReaction, user) => {
           }
 
           break;
+      }
+    } else {
+      if (message.channel.id === channel_change.id){
+        message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
       }
     }
   } catch (e) {

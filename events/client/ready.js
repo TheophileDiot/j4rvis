@@ -19,6 +19,12 @@ module.exports = async bot => {
       });
 
       channel_change.bulkDelete(lastMessage, true);
+    
+      channel_change.messages.fetch({ limit: 1 }).then(messages => {
+        lastMessage = messages.first();
+      });
+
+      channel_change.bulkDelete(lastMessage, true);
       
       const guild = bot.guilds.cache.get("697723523472424970");
     
@@ -57,8 +63,8 @@ module.exports = async bot => {
              ${sportEmoji} - ${sport}
              ${cinemaEmoji} - ${cinema}
              ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr}
-             ${codingDojoEmoji} - ${codingDojo}
+             ${jdrEmoji} - ${jdr} **Limitée à 15 personnes**
+             ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
              ${chillCastEmoji} - ${chillCast}
              ${analyseVideoEmoji} - ${analyseVideo}
@@ -79,6 +85,8 @@ module.exports = async bot => {
         await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
         await msg.react(analyseVideoEmoji);
       });
+    
+      // channel_change.send("**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** Nouveaux joueurs acceptés dès le 29 mai, à venir 1 campagne, 2 one shot !");
     } catch (e) {
       console.log(e);
     }

@@ -71,8 +71,8 @@ module.exports = {
              ${sportEmoji} - ${sport}
              ${cinemaEmoji} - ${cinema}
              ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr}
-             ${codingDojoEmoji} - ${codingDojo}
+             ${jdrEmoji} - ${jdr} **Limitée à 15 personnes**
+             ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
              ${chillCastEmoji} - ${chillCast}
              ${analyseVideoEmoji} - ${analyseVideo}
@@ -95,6 +95,7 @@ module.exports = {
           await msg.react(analyseVideoEmoji);
         }
       });
+      
     } catch (e) {
       console.log(e);
     } finally {

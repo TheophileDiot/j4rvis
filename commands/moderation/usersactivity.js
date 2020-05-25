@@ -33,6 +33,7 @@ module.exports = {
       const chillCast = message.guild.roles.cache.find(r => r.name == "ChillCast");
       const analyseVideo = message.guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
       
+      const enAttenteDeRole = message.guild.roles.cache.find(r => r.name == "En_attente_de_rôle");
       const absent = message.guild.roles.cache.find(r => r.name == "Absent");
       
       let sEmbed = new MessageEmbed()
@@ -49,6 +50,7 @@ module.exports = {
         .addField("**Graphisme :**", `${graphisme.members.size} personnes`, true)
         .addField("**ChillCast :**", `${chillCast.members.size} personnes`, true)
         .addField("**Analyse_Vidéo :**", `${analyseVideo.members.size} personnes`, true)
+        .addField("**En attente de rôle**", `${enAttenteDeRole.members.size} personnes`, true)
         .addField("**Absents :**", `${absent.members.size} personnes`, true)
         .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
 

@@ -21,6 +21,8 @@ module.exports = {
     const enAttenteDeRole = message.guild.roles.cache.find(r => r.name == "En_attente_de_rôle");
     const absent = message.guild.roles.cache.find(r => r.name == "Absent");
     
+    const ressource = message.guild.roles.cache.find(r => r.name == "Ressource");
+    
     const loupsGarous = message.guild.roles.cache.find(r => r.name == "Loups_garous");
     //const revision = message.guild.roles.cache.find(r => r.name == "Révision");
     const sport = message.guild.roles.cache.find(r => r.name == "Sport");
@@ -50,6 +52,7 @@ module.exports = {
           !member.user.bot &&
           !member.roles.cache.has(moderateur.id) &&
           !member.roles.cache.has(administrateur.id) &&
+          !member.roles.cache.has(ressource.id) &&
           !member.roles.cache.has(modoLoupsGarous.id) &&
           !member.roles.cache.has(modoSport.id) &&
           !member.roles.cache.has(modoCinema.id) &&
