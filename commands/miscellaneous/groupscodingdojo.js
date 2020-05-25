@@ -1,37 +1,36 @@
 const { MessageEmbed } = require("discord.js");
-const { orange_jdr } = require("../../colours.json");
+const { green_codingDojo } = require("../../colours.json");
 
 module.exports = {
   config: {
-    name: "groupsjdr",
-    description: "Créé de 1 à 3 groupes manuellement pour l'activité JDR",
-    usage: "[tag des membres du groupe 1 séparés par des \";\"] | [tag des membres du groupe 2 séparés par des \";\"] | [tag des membres du groupe 3 séparés par des \";\"]",
+    name: "groupscodingdojo",
+    description: "Créé de 1 à 2 groupes manuellement pour l'activité Coding Dojo",
+    usage: "[tag des membres du groupe Révision séparés par des \";\"] | [tag des membres du groupe Classique séparés par des \";\"]",
     category: "miscellaneous",
-    accessableby: "Modérateur_JDR",
-    aliases: ["jdrgroups", "jdrgroupes", "groupesjdr", "jdrgroup", "jdrgroupe", "groupejdr", "groupjdr"]
+    accessableby: "Modérateur_Coding_Dojo",
+    aliases: ["groupCD", "groupsCD", "codingdojogroups", "codingdojogroupes", "groupescodingdojo", "codingdojogroup", "codingdojogroupe", "groupecodingdojo", "groupcodingdojo"]
   },
 
   run: async (bot, message, args) => {
     
     const member = message.member;
     
-    const modoJdr = message.guild.roles.cache.find(r => r.name == "Modérateur_JDR");
-    const jdr = message.guild.roles.cache.find(r => r.name == "JDR");
+    const modoCodingDojo = message.guild.roles.cache.find(r => r.name == "Modérateur_Coding_Dojo");
+    const codingDojo = message.guild.roles.cache.find(r => r.name == "Coding_Dojo");
     
-    const groupjdr1 = message.guild.roles.cache.find(r => r.name == "group1_jdr");
-    const groupjdr2 = message.guild.roles.cache.find(r => r.name == "group2_jdr");
-    const groupjdr3 = message.guild.roles.cache.find(r => r.name == "group3_jdr");
+    const groupRevision = message.guild.roles.cache.find(r => r.name == "Coding_Dojo_Revision");
+    const groupClassique = message.guild.roles.cache.find(r => r.name == "Coding_Dojo_CLassique");
     
     try {
       
       if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])){
         
-        if(!member.roles.cache.has(jdr.id)) return message.channel.send("Vous ne faites pas partis de l'activité JDR !")
+        if(!member.roles.cache.has(codingDojo.id)) return message.channel.send("Vous ne faites pas partis de l'activité Coding Dojo !")
                                                     .then(msg => {
                                                       msg.delete({ timeout: 2500 });
                                                     });
       
-        if(!member.roles.cache.has(modoJdr.id)) return message.channel.send("Vous devez être Modérateur_JDR pour exécuter cette commande !")
+        if(!member.roles.cache.has(modoCodingDojo.id)) return message.channel.send("Vous devez être Modérateur_Coding_Dojo pour exécuter cette commande !")
                                                         .then(msg => {
                                                           msg.delete({ timeout: 2500 });
                                                         });
@@ -53,20 +52,16 @@ module.exports = {
                                       });
       
       if(groups[0] != undefined){
-        var group1_str = generateGroups(jdr, groupjdr1, groups[0].split(";"), group1_str, message);
+        var group1_str = generateGroups(codingDojo, groupRevision, groups[0].split(";"), group1_str, message);
       }
       
       if(groups[0] != undefined && groups[1] != undefined){
-        var group2_str = generateGroups(jdr, groupjdr2, groups[1].split(";"), group2_str, message);
-      }
-      
-      if(groups[0] != undefined && groups[1] != undefined && groups[2] != undefined){
-        var group3_str = generateGroups(jdr, groupjdr3, groups[2].split(";"), group3_str, message);
+        var group2_str = generateGroups(codingDojo, groupClassique, groups[1].split(";"), group2_str, message);
       }
       
       let Embed = new MessageEmbed()
-        .setColor(orange_jdr)
-        .setTitle(`Groupes JDR`)
+        .setColor(green_codingDojo)
+        .setTitle(`Groupes Coding Dojo`)
         .setThumbnail("https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
         .setAuthor(`${member.nickname}`, "https://cdn.discordapp.com/avatars/" + member.user.id + "/" + member.user.avatar + ".png");
       
@@ -74,10 +69,6 @@ module.exports = {
       
       if(group2_str != undefined){
         Embed.addField(`**Groupe 2**`, `${group2_str}`, true);
-      }
-      
-      if(group3_str != undefined){
-        Embed.addField(`**Groupe 3**`, `${group3_str}`, true);
       }
       
       Embed.setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
@@ -92,7 +83,7 @@ module.exports = {
   }
 };
 
-function generateGroups(jdr, groupjdr, group, group_str, message){
+function generateGroups(codingDojo, groupCodingDojo, group, group_str, message){
   
   group_str = "";
   
@@ -103,10 +94,10 @@ function generateGroups(jdr, groupjdr, group, group_str, message){
         
         membre = message.guild.members.cache.get(`${membre}`);
         
-        if(membre.roles.cache.has(jdr.id)){
+        if(membre.roles.cache.has(codingDojo.id)){
           group_str += "".concat((membre.nickname).substring((membre.nickname).indexOf("]")+1), "\n");
         
-          membre.roles.add(groupjdr);
+          membre.roles.add(groupCodingDojo);
         } else {
           message.channel.send(`Le membre ${membre} n'a pas le rôle JDR ! (passage sans attribution du rôle)`)
             .then(msg => {
