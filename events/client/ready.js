@@ -63,11 +63,11 @@ module.exports = async bot => {
              ${sportEmoji} - ${sport}
              ${cinemaEmoji} - ${cinema}
              ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr} **Limitée à 15 personnes**
+             ${jdrEmoji} - ${jdr} **Limitée à 20 personnes**
              ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
-             ${chillCastEmoji} - ${chillCast}
-             ${analyseVideoEmoji} - ${analyseVideo}
+             ${chillCastEmoji} - ${chillCast} **Annulée cette semaine**
+             ${analyseVideoEmoji} - ${analyseVideo} **Annulée cette semaine**
           `
         );
 
@@ -86,7 +86,7 @@ module.exports = async bot => {
         await msg.react(analyseVideoEmoji);
       });
     
-      // channel_change.send("**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** Nouveaux joueurs acceptés dès le 29 mai, à venir 1 campagne, 2 one shot !");
+      channel_change.send("**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** Vont commencer : 2 one shot (5 joueurs par one shot, 2 séances environ) - 1 campagne (10 joueurs max, jusqu'à la fin des clubs)");
     } catch (e) {
       console.log(e);
     }

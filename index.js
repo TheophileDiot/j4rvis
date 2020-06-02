@@ -12,7 +12,7 @@ app.get("/", (request, response) => {
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
+}, 180000);
 
 ["aliases", "commands"].forEach(x => (bot[x] = new Collection()));
 ["command", "event"].forEach(x => require(`./handlers/${x}`)(bot));

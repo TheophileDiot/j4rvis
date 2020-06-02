@@ -22,6 +22,22 @@ module.exports = {
 
     try {
       
+      const channel_change = bot.channels.cache.get("700683266373582878");
+      
+      let lastMessage = null;
+    
+      channel_change.messages.fetch({ limit: 1 }).then(messages => {
+        lastMessage = messages.first();
+      });
+
+      channel_change.bulkDelete(lastMessage, true);
+    
+      channel_change.messages.fetch({ limit: 1 }).then(messages => {
+        lastMessage = messages.first();
+      });
+
+      channel_change.bulkDelete(lastMessage, true);
+      
       var nbr = 1;
       
       const channel = message.guild.channels.cache.get("702963106090975337");

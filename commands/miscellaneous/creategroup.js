@@ -72,7 +72,9 @@ module.exports = {
               }
             }
           }
-                   
+          
+          list[0] = list[0].substring(0, list[0].length - 2);
+          
           for (let i = 1; i < nbrgroups; i++) {
             list[i] = list[i].substring(9, list[i].length - 2);
           }

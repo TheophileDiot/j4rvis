@@ -4,7 +4,7 @@ const { yellow_j4rvis } = require("../../colours.json");
 module.exports = {
   config: {
     name: "listeroles",
-    description: "Affiche tous les rôles du serveur avec des reactions",
+    description: "Affiche tous les Activités du serveur avec des reactions",
     usage: "(change dans le salon #changement-activité)",
     category: "miscellaneous",
     accessableby: "Membres",
@@ -50,14 +50,14 @@ module.exports = {
       const chillCastEmoji = "<:CHILLCAST:707929193559883777>";
       const analyseVideoEmoji = "📼";
 
-      const embed = new MessageEmbed().setTitle("Rôles");
+      const embed = new MessageEmbed().setTitle("Activités");
 
       if (message.channel == channel_change.id /*|| message.channel == channel_test.id*/) {
         embed.setDescription(
           "Cliquez sur une des réactions ci-dessous pour obtenir le rôle correspondant.\n\n**Merci de n'ajouter qu'une seule réaction !**\n\n*Si vous vous êtes trompé lors de votre choix veuillez enlever votre réaction initiale puis en ajouter une autre.*"
         );
       } else {
-        embed.setDescription("Liste des rôles présents sur le serveur.");
+        embed.setDescription("Liste des activités présents sur le serveur.");
       }
 
       embed
@@ -65,17 +65,17 @@ module.exports = {
         .setAuthor(`${message.guild.me.displayName}`, message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .addField(
-          "Les rôles disponibles:",
+          "Les activités disponibles:",
           `
              ${loupsGarousEmoji} - ${loupsGarous}
              ${sportEmoji} - ${sport}
              ${cinemaEmoji} - ${cinema}
              ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr} **Limitée à 15 personnes**
+             ${jdrEmoji} - ${jdr} **Limitée à 20 personnes**
              ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
-             ${chillCastEmoji} - ${chillCast}
-             ${analyseVideoEmoji} - ${analyseVideo}
+             ${chillCastEmoji} - ${chillCast} **Annulée cette semaine**
+             ${analyseVideoEmoji} - ${analyseVideo} **Annulée cette semaine**
           `
         );
 

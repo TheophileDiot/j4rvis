@@ -15,10 +15,11 @@ module.exports = {
   run: async (bot, message, args) => {
 
     const channel_appel = message.guild.channels.cache.get("709662934908928081");
-    
-    if(message.channel != channel_appel) return message.channel.send(`Vous ne lancer pas la commande dans le bon salon, le bon salon est ${channel_appel}.`);
-    
     const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    
+    if (!message.member.roles.cache.has(moderateur.id)){
+      if(message.channel != channel_appel) return message.channel.send(`Vous ne lancer pas la commande dans le bon salon, le bon salon est ${channel_appel}.`);
+    }
     
     if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
@@ -43,6 +44,10 @@ module.exports = {
                       + "**Si vous n'ajoutez pas une réaction à temps, vous serrez mis absent pour la moitié du créneau**")
       .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
     
+      // mise auto présent à retirer
+      const auto_present = true;
+      presents_arr.push("[AG - Admin] Théophile DIOT");
+      
       message.channel.send("@everyone Appel !").then(msg => {
           msg.delete({ timeout: 900000 });
         });
@@ -56,10 +61,12 @@ module.exports = {
             
             var membre = message.guild.members.cache.get(user.id);
             
-            if(membre.nickname == null || membre.nickname == undefined){
-              presents_arr.push(membre.user.name);
-            } else {
-              presents_arr.push(membre.nickname);
+            if(membre.nickname != "[AG - Admin] Théophile DIOT" && auto_present){
+              if(membre.nickname == null || membre.nickname == undefined){
+                presents_arr.push(membre.user.name);
+              } else {
+                presents_arr.push(membre.nickname);
+              }
             }
             
           }
@@ -76,6 +83,7 @@ module.exports = {
           presents_arr = presents_arr.sort();
           
           message.guild.members.cache.forEach((membre, key) => {
+            
             if(!presents_arr.includes(membre.nickname) && !membre.user.bot){
               if(membre.nickname == null || membre.nickname == undefined){
                 away_arr.push(membre.user.tag);
@@ -103,6 +111,8 @@ module.exports = {
           }
         }, 900000);
       });
+      
+      // 900000
       
       message.delete();
       

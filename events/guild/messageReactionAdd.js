@@ -3,6 +3,7 @@ module.exports = async (bot, messageReaction, user) => {
     const message = messageReaction.message;
     const member = message.guild.members.cache.get(user.id);
     const channel_change = message.guild.channels.cache.get("700683266373582878");
+    const channel_log = message.guild.channels.cache.get("715825298704302080");
     //const channel_test = message.guild.channels.cache.get("700751796808843336");
 
     if (member.user.bot) return;
@@ -32,6 +33,9 @@ module.exports = async (bot, messageReaction, user) => {
 
     const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
     const administrateur = message.guild.roles.cache.find(r => r.name == "Administrateur");
+    
+    const logAdd = "🟢";
+    const logTentative = "🟠";
 
     /*console.log("content loupsGarous : ", loupsGarous);
         console.log("content cinema : ", cinema);
@@ -49,7 +53,7 @@ module.exports = async (bot, messageReaction, user) => {
         case "🐺":
           
           if (!member.roles.cache.has(loupsGarous.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(loupsGarous);
 
               message.channel
@@ -59,6 +63,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+              
+              channel_log.send(`${logAdd} Ajout du rôle ${loupsGarous.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
             message.channel
@@ -66,6 +72,10 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${loupsGarous.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
           }
           
 
@@ -73,7 +83,7 @@ module.exports = async (bot, messageReaction, user) => {
 
         /*case "📖":
           if (!member.roles.cache.has(revision.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(revision);
 
               message.channel
@@ -90,6 +100,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+                
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
           }
 
           break;*/
@@ -97,7 +109,7 @@ module.exports = async (bot, messageReaction, user) => {
         case "💪":
           
           if (!member.roles.cache.has(sport.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(sport);
 
               message.channel
@@ -107,6 +119,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+              
+              channel_log.send(`${logAdd} Ajout du rôle ${sport.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
             message.channel
@@ -114,6 +128,10 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${sport.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
           }
 
           break;
@@ -121,7 +139,7 @@ module.exports = async (bot, messageReaction, user) => {
         case "🎦":
           
           if (!member.roles.cache.has(cinema.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(cinema);
 
               message.channel
@@ -131,6 +149,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+              
+              channel_log.send(`${logAdd} Ajout du rôle ${cinema.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
             message.channel
@@ -138,6 +158,10 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${cinema.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
           }
 
           break;
@@ -145,7 +169,7 @@ module.exports = async (bot, messageReaction, user) => {
         case "🃏":
           
           if (!member.roles.cache.has(cycle.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(cycle);
 
               message.channel
@@ -155,6 +179,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+              
+              channel_log.send(`${logAdd} Ajout du rôle ${cycle.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
             message.channel
@@ -162,6 +188,10 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${cycle.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
           }
 
           break;
@@ -169,10 +199,22 @@ module.exports = async (bot, messageReaction, user) => {
         case "🐉":
           
           if (!member.roles.cache.has(jdr.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
-              var nbrmembres = message.guild.roles.cache.get(jdr.id).members.map(m=>m);
+            
+            var nbrmembres = message.guild.roles.cache.get(jdr.id).members.map(m=>m);
+            
+            if(nbrmembres.length > 20){
+              message.channel
+                  .send(`Vous ne pouvez pas rejoindre l'activité ${jdr.name} car la limite en nombre de membres a été atteinte !`)
+                  .then(msg => {
+                    msg.delete({ timeout: 2500 });
+                  });
+                
+              message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+              
+              channel_log.send(`${logTentative} Tentative d'ajout du rôle ${jdr.name} à l'utilisateur ${member.nickname} mais la limite en nombre de membres a été atteinte.`);
+            } else {
+              if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
 
-              if(nbrmembres.length <= 15){
                 member.roles.add(jdr);
 
                 message.channel
@@ -182,21 +224,21 @@ module.exports = async (bot, messageReaction, user) => {
                   .then(msg => {
                     msg.delete({ timeout: 2500 });
                   });
-              } else {
-                message.channel
-                  .send(`Vous ne pouvez pas rejoindre l'activité ${jdr.name} car la limite en nombre de membres a été atteinte !`)
-                  .then(msg => {
-                    msg.delete({ timeout: 2500 });
-                  });
-              } 
+                
+                channel_log.send(`${logAdd} Ajout du rôle ${jdr.name} à l'utilisateur ${member.nickname}.`);
               
-            }
+              }
+            } 
           } else {
             message.channel
               .send(`${member.user} vous avez déjà le rôle ${jdr.name}`)
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${jdr.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
           }
 
           break;
@@ -204,10 +246,22 @@ module.exports = async (bot, messageReaction, user) => {
         case "👨‍💻":
           
           if (!member.roles.cache.has(codingDojo.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
-              var nbrmembres = message.guild.roles.cache.get(codingDojo.id).members.map(m=>m);
+            
+            var nbrmembres = message.guild.roles.cache.get(codingDojo.id).members.map(m=>m);
+            
+            if(nbrmembres.length > 13){
+              message.channel
+                .send(`Vous ne pouvez pas rejoindre l'activité ${codingDojo.name} car la limite en nombre de membres a été atteinte !`)
+                  .then(msg => {
+                    msg.delete({ timeout: 2500 });
+                  });
 
-              if(nbrmembres.length <= 13){
+              message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+              
+              channel_log.send(`${logTentative} Tentative d'ajout du rôle ${codingDojo.name} à l'utilisateur ${member.nickname} mais la limite en nombre de membres a été atteinte.`);
+            } else {
+              if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
+              
                 member.roles.add(codingDojo);
 
                 message.channel
@@ -217,28 +271,28 @@ module.exports = async (bot, messageReaction, user) => {
                   .then(msg => {
                     msg.delete({ timeout: 2500 });
                   });
-              } else {
-                message.channel
-                  .send(`Vous ne pouvez pas rejoindre l'activité ${codingDojo.name} car la limite en nombre de membres a été atteinte !`)
+                
+                channel_log.send(`${logAdd} Ajout du rôle ${codingDojo.name} à l'utilisateur ${member.nickname}.`);
+              }
+            }
+          } else {
+              message.channel
+                .send(`${member.user} vous avez déjà le rôle ${codingDojo.name}`)
                   .then(msg => {
                     msg.delete({ timeout: 2500 });
                   });
-              } 
-            }
-          } else {
-            message.channel
-              .send(`${member.user} vous avez déjà le rôle ${codingDojo.name}`)
-                .then(msg => {
-                  msg.delete({ timeout: 2500 });
-                });
-          }
+
+              message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
             
-          break;
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${codingDojo.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
+          }
+          
+        break;
 
         case "✏️":
           
           if (!member.roles.cache.has(graphisme.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(graphisme);
 
               message.channel
@@ -248,6 +302,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+              
+              channel_log.send(`${logAdd} Ajout du rôle ${graphisme.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
             message.channel
@@ -255,14 +311,26 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${graphisme.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
           }
 
           break;
           
         case "CHILLCAST":
           
-          if (!member.roles.cache.has(chillCast.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+          message.channel
+                .send(
+                  `${member} L'activité ${chillCast.name} est annulée cette semaine.`
+                )
+                .then(msg => {
+                  msg.delete({ timeout: 2500 });
+                });
+          
+          /*if (!member.roles.cache.has(chillCast.id)) {
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(chillCast);
 
               message.channel
@@ -272,17 +340,35 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+                
+              channel_log.send(`${logAdd} Ajout du rôle ${chillCast.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
+            message.channel
+              .send(`${member.user} vous avez déjà le rôle ${chillCast.name}`)
+                .then(msg => {
+                  msg.delete({ timeout: 2500 });
+                });
             
-          }
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${chillCast.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
+          }*/
 
           break;
           
         case "📼":
           
-          if (!member.roles.cache.has(analyseVideo.id)) {
-            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo)){
+          message.channel
+                .send(
+                  `${member} L'activité ${analyseVideo.name} est annulée cette semaine.`
+                )
+                .then(msg => {
+                  msg.delete({ timeout: 2500 });
+                });
+          
+          /*if (!member.roles.cache.has(analyseVideo.id)) {
+            if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(analyseVideo);
 
               message.channel
@@ -292,6 +378,8 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
+              
+              channel_log.send(`${logAdd} Ajout du rôle ${analyseVideo.name} à l'utilisateur ${member.nickname}.`);
             }
           } else {
             message.channel
@@ -299,7 +387,11 @@ module.exports = async (bot, messageReaction, user) => {
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
                 });
-          }
+            
+            message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
+            
+            channel_log.send(`${logTentative} Tentative d'ajout du rôle ${analyseVideo.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
+          }*/
 
           break;
       }
@@ -313,7 +405,10 @@ module.exports = async (bot, messageReaction, user) => {
   }
 };
 
-function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo){
+function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log){
+  
+  const logTentative = "🟠";
+  const logDel = "🔴";
   
   if (member.roles.cache.has(modoLoupsGarous.id) || member.roles.cache.has(modoSport.id) || member.roles.cache.has(modoCinema.id) || member.roles.cache.has(modoCycle.id) || member.roles.cache.has(modoJdr.id) || member.roles.cache.has(modoCodingDojo.id) || member.roles.cache.has(modoGraphisme.id) || member.roles.cache.has(modoChillCast.id) || member.roles.cache.has(modoAnalyseVideo.id)){
     message.channel.send(
@@ -322,11 +417,15 @@ function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole
         msg.delete({ timeout: 5000 });
       });
     
+    channel_log.send(`${logTentative} Tentative de suppression de rôles à l'utilisateur ${member.nickname} mais l'utilisateur est déjà modérateur d'une activité.`);
+    
     return false;
   }
   
   if (member.roles.cache.has(enAttenteDeRole.id)) {
     member.roles.remove(enAttenteDeRole);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${enAttenteDeRole.name} à l'utilisateur ${member.nickname}.`);
   }
 
   /*if (member.roles.cache.has(revision.id)) {
@@ -335,38 +434,56 @@ function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole
 
   if (member.roles.cache.has(loupsGarous.id)) {
     member.roles.remove(loupsGarous);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${loupsGarous.name} à l'utilisateur ${member.nickname}.`);
   }
   
   if (member.roles.cache.has(sport.id)) {
     member.roles.remove(sport);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${sport.name} à l'utilisateur ${member.nickname}.`);
   }
 
   if (member.roles.cache.has(cinema.id)) {
     member.roles.remove(cinema);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${cinema.name} à l'utilisateur ${member.nickname}.`);
   }
 
   if (member.roles.cache.has(cycle.id)) {
     member.roles.remove(cycle);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${cycle.name} à l'utilisateur ${member.nickname}.`);
   }
 
   if (member.roles.cache.has(jdr.id)) {
     member.roles.remove(jdr);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${jdr.name} à l'utilisateur ${member.nickname}.`);
   }
 
   if (member.roles.cache.has(codingDojo.id)) {
     member.roles.remove(codingDojo);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${codingDojo.name} à l'utilisateur ${member.nickname}.`);
   }
 
   if (member.roles.cache.has(graphisme.id)) {
     member.roles.remove(graphisme);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${graphisme.name} à l'utilisateur ${member.nickname}.`);
   }
   
   if (member.roles.cache.has(chillCast.id)) {
     member.roles.remove(chillCast);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${chillCast.name} à l'utilisateur ${member.nickname}.`);
   }
           
   if (member.roles.cache.has(analyseVideo.id)) {
     member.roles.remove(analyseVideo);
+    
+    channel_log.send(`${logDel} Suppression du rôle ${analyseVideo.name} à l'utilisateur ${member.nickname}.`);
   }
   
   return true;
