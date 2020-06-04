@@ -74,8 +74,8 @@ module.exports = {
              ${jdrEmoji} - ${jdr} **Limitée à 20 personnes**
              ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
-             ${chillCastEmoji} - ${chillCast} **Annulée cette semaine**
-             ${analyseVideoEmoji} - ${analyseVideo} **Annulée cette semaine**
+             ${chillCastEmoji} - ${chillCast}
+             ${analyseVideoEmoji} - ${analyseVideo}
           `
         );
 

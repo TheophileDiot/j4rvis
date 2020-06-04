@@ -66,8 +66,8 @@ module.exports = async bot => {
              ${jdrEmoji} - ${jdr} **Limitée à 20 personnes**
              ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
-             ${chillCastEmoji} - ${chillCast} **Annulée cette semaine**
-             ${analyseVideoEmoji} - ${analyseVideo} **Annulée cette semaine**
+             ${chillCastEmoji} - ${chillCast}
+             ${analyseVideoEmoji} - ${analyseVideo}
           `
         );
 
@@ -86,7 +86,7 @@ module.exports = async bot => {
         await msg.react(analyseVideoEmoji);
       });
     
-      channel_change.send("**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** Vont commencer : 2 one shot (5 joueurs par one shot, 2 séances environ) - 1 campagne (10 joueurs max, jusqu'à la fin des clubs)");
+      channel_change.send(`**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** \n **Va commencer :** \n - 1 one shot (*5 joueurs max / durée : 1-2 séances environ*)\n\n **En cours :** \n  - 1 campagne {résumé de la séance passée dans ${bot.channels.cache.get('700687249825857597')} }  (*6 joueurs actuel / durée : jusqu'à la fin des clubs*) - 2 nouveaux joueurs sont acceptés (fiche perso à voir avec <@!387319193802113025>\n  - 1 one shot (*3 joueurs actuel, 1 séance restante*) Pas de nouveaux acceptés`);
     } catch (e) {
       console.log(e);
     }
