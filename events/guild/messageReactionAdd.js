@@ -321,15 +321,15 @@ module.exports = async (bot, messageReaction, user) => {
           
         case "CHILLCAST":
           
-          message.channel
+          /*message.channel
                 .send(
                   `${member} L'activité ${chillCast.name} est annulée cette semaine.`
                 )
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
-                });
+                });*/
           
-          /*if (!member.roles.cache.has(chillCast.id)) {
+          if (!member.roles.cache.has(chillCast.id)) {
             if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(chillCast);
 
@@ -353,21 +353,21 @@ module.exports = async (bot, messageReaction, user) => {
             message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
             
             channel_log.send(`${logTentative} Tentative d'ajout du rôle ${chillCast.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
-          }*/
+          }
 
           break;
           
         case "📼":
           
-          message.channel
+          /*message.channel
                 .send(
                   `${member} L'activité ${analyseVideo.name} est annulée cette semaine.`
                 )
                 .then(msg => {
                   msg.delete({ timeout: 2500 });
-                });
+                });*/
           
-          /*if (!member.roles.cache.has(analyseVideo.id)) {
+          if (!member.roles.cache.has(analyseVideo.id)) {
             if(checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modoLoupsGarous, loupsGarous, modoSport, sport, modoCinema, cinema, modoCycle, cycle, modoJdr, jdr, modoCodingDojo, codingDojo, modoGraphisme, graphisme, modoChillCast, chillCast, modoAnalyseVideo, analyseVideo, channel_log)){
               member.roles.add(analyseVideo);
 
@@ -391,7 +391,7 @@ module.exports = async (bot, messageReaction, user) => {
             message.reactions.resolve(messageReaction.emoji.name).users.remove(member.user);
             
             channel_log.send(`${logTentative} Tentative d'ajout du rôle ${analyseVideo.name} à l'utilisateur ${member.nickname} mais l'utilisateur a déjà le rôle.`);
-          }*/
+          }
 
           break;
       }
