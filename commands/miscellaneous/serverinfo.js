@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageAttachment } = require("discord.js");
 const { red_light } = require("../../colours.json");
 const moment = require("moment");
 
@@ -33,12 +33,14 @@ module.exports = {
         nbrTextChannels += 1;
       }
     });
-    
+
     let sEmbed = new MessageEmbed()
       .setColor(red_light)
       .setTitle("Server Info")
-      .setThumbnail("https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
-      .setAuthor(`${message.guild.name} Info`, "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
+      .attachFiles(['./Photos/Logo_j4rvis.png'])
+      .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
+      .setThumbnail('attachment://Logo_INTECH_Activites_a_la_carte.png')
+      .setAuthor(`${message.guild.name}`, 'attachment://Logo_INTECH_Activites_a_la_carte.png')
       .addField("**Nom du serveur:**", `${message.guild.name}`, true)
       .addField("**Création du serveur:**", `${moment.utc(message.guild.createdAt).format("LL")}`, true)
       .addField("**Propriétaire du serveur:**", `${message.guild.owner}`, true)
@@ -47,7 +49,7 @@ module.exports = {
       .addField("**Liste des rôles:**", `${listRoles}`, true)
       .addField("**Nombre de salon vocaux:**", `${nbrVoiceChannels}`, true)
       .addField("**Nombre de salon textuels:**", `${nbrTextChannels}`, true)
-      .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
+      .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
     
     message.channel.send({ embed: sEmbed });
     message.delete();

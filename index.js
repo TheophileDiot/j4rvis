@@ -17,4 +17,4 @@ setInterval(() => {
 ["aliases", "commands"].forEach(x => (bot[x] = new Collection()));
 ["command", "event"].forEach(x => require(`./handlers/${x}`)(bot));
 
-bot.login(process.env.TOKEN);
+bot.login(process.env.BOT_TOKEN);

@@ -38,6 +38,7 @@ module.exports = {
       const graphisme = message.guild.roles.cache.find(r => r.name == "Graphisme");
       const chillCast = message.guild.roles.cache.find(r => r.name == "ChillCast");
       const analyseVideo = message.guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
+      const risk = message.guild.roles.cache.find(r => r.name == "Risk");
 
       const loupsGarousEmoji = "🐺";
       //const revisionEmoji = "📖";
@@ -49,6 +50,7 @@ module.exports = {
       const graphismeEmoji = "✏️";
       const chillCastEmoji = "<:CHILLCAST:707929193559883777>";
       const analyseVideoEmoji = "📼";
+      const riskEmoji = "⚔️";
 
       const embed = new MessageEmbed().setTitle("Activités");
 
@@ -62,8 +64,10 @@ module.exports = {
 
       embed
         .setColor(yellow_j4rvis)
-        .setAuthor(`${message.guild.me.displayName}`, message.guild.iconURL)
-        .setThumbnail(bot.user.displayAvatarURL)
+        .attachFiles(['./Photos/Logo_j4rvis.png'])
+        .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
+        .setAuthor(`${message.guild.me.displayName}`, 'attachment://Logo_INTECH_Activites_a_la_carte.png')
+        .setThumbnail('attachment://Logo_j4rvis.png')
         .addField(
           "Les activités disponibles:",
           `
@@ -71,13 +75,15 @@ module.exports = {
              ${sportEmoji} - ${sport}
              ${cinemaEmoji} - ${cinema}
              ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr} **Limitée à 20 personnes**
-             ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
+             ${jdrEmoji} - ${jdr} **Limitée à 16 personnes**
+             ${codingDojoEmoji} - ${codingDojo} **Annulée cette semaine**
              ${graphismeEmoji} - ${graphisme}
              ${chillCastEmoji} - ${chillCast}
              ${analyseVideoEmoji} - ${analyseVideo}
+             ${riskEmoji} - ${risk} **Nouvelle activité**
           `
-        );
+        )
+        .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
       // ${revisionEmoji} - ${revision}
 
@@ -93,6 +99,7 @@ module.exports = {
           await msg.react(graphismeEmoji);
           await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
           await msg.react(analyseVideoEmoji);
+          await msg.react(riskEmoji);
         }
       });
       

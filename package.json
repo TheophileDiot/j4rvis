@@ -4,7 +4,7 @@
   "description": "bot discord pour le serveur \"activités à la carte\"",
   "main": "index.js",
   "engines": {
-    "node": "12.16.2"
+    "node": "12.18.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,7 +18,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
-    "moment": "^2.24.0",
+    "moment": "^2.26.0",
     "superagent": "^5.2.2"
   }
 }
