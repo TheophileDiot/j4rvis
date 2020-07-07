@@ -18,6 +18,7 @@ module.exports = {
     let uEmbed = new MessageEmbed()
       .setColor(yellow_j4rvis)
       .setTitle(`Informations de l'utilisateur ${member.user.username}`)
+      .attachFiles(['./Photos/Logo_j4rvis.png'])
       .setThumbnail("https://cdn.discordapp.com/avatars/" + member.user.id + "/" + member.user.avatar + ".png")
       .setAuthor(`${member.user.username} Infos`, "https://cdn.discordapp.com/avatars/" + member.user.id + "/" + member.user.avatar + ".png")
       .addField("**Nom d'utilisateur:**", `${member.user.username}`, true)
@@ -25,7 +26,7 @@ module.exports = {
       .addField("**ID:**", `${member.id}`, true)
       .addField("**Status:**", `${member.user.presence.status}`, true)
       .addField("**Créé le:**",`${moment.utc(member.user.createdAt).format("LLL")}`,true)
-      .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
+      .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
     message.channel.send({ embed: uEmbed });
     message.delete();

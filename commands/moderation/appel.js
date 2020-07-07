@@ -26,6 +26,16 @@ module.exports = {
         "Vous ne pouvez pas utiliser cette commande!"
       );
 
+    const channel_lg = message.guild.channels.cache.get('697728705627291748');
+    const channel_sport = message.guild.channels.cache.get('702152013370359939');
+    const channel_cinema = message.guild.channels.cache.get('698099586576678993');
+    const channel_cycle = message.guild.channels.cache.get('702891558059376758');
+    const channel_jdr = message.guild.channels.cache.get('700324617016967248');
+    const channel_codingDojo = message.guild.channels.cache.get('700737711916711976');
+    const channel_graphisme = message.guild.channels.cache.get('710424992520601691');
+    const channel_chillCast = message.guild.channels.cache.get('707932837277466696');
+    const channel_analyseVideo = message.guild.channels.cache.get('706802350492221481');
+
     try {
       
       const presentEmoji = "✅";
@@ -38,19 +48,31 @@ module.exports = {
       let sEmbed = new MessageEmbed()
       .setColor(yellow_j4rvis)
       .setTitle("Appel !")
-      .setThumbnail("https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
-      .setAuthor(`${message.guild.name} Info`, "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
+      .attachFiles(['./Photos/Logo_j4rvis.png'])
+      .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
+      .setThumbnail('attachment://Logo_INTECH_Activites_a_la_carte.png')
+      .setAuthor(`${message.guild.name} Info`, 'attachment://Logo_INTECH_Activites_a_la_carte.png')
       .setDescription("Cliquez sur la réaction si présente pour montrer que vous êtes présent.\n\n"
                       + "**Si vous n'ajoutez pas une réaction à temps, vous serrez mis absent pour la moitié du créneau**")
-      .setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
+      .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
     
       // mise auto présent à retirer
       const auto_present = true;
       presents_arr.push("[AG - Admin] Théophile DIOT");
-      
+
       message.channel.send("@everyone Appel !").then(msg => {
           msg.delete({ timeout: 900000 });
         });
+
+      channel_lg.send("Appel lancé !");
+      channel_sport.send("Appel lancé !");
+      channel_cinema.send("Appel lancé !");
+      channel_cycle.send("Appel lancé !");
+      channel_jdr.send("Appel lancé !");
+      channel_codingDojo.send("Appel lancé !");
+      channel_graphisme.send("Appel lancé !");
+      channel_chillCast.send("Appel lancé !");
+      channel_analyseVideo.send("Appel lancé !");
       
       message.channel.send({ embed: sEmbed }).then(async msg => {
         

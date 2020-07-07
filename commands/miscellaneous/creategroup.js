@@ -82,14 +82,16 @@ module.exports = {
           let Embed = new MessageEmbed()
             .setColor(yellow_j4rvis)
             .setTitle(`Groupes de l'activité ${role.name}`)
-            .setThumbnail("https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2FLogo_INTECH_Activites_a_la_carte.png?v=1587550110481")
+            .attachFiles(['./Photos/Logo_j4rvis.png'])
+            .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
+            .setThumbnail('attachment://Logo_INTECH_Activites_a_la_carte.png')
             .setAuthor(`${member.nickname}`, "https://cdn.discordapp.com/avatars/" + member.user.id + "/" + member.user.avatar + ".png");
             
             for (let i = 0; i < nbrgroups; i++) {
               Embed.addField(`**Groupe ${i + 1}**`, `${list[i]}`, true)
             }
           
-            Embed.setFooter("J4RVIS", "https://cdn.glitch.com/d5a6f7f9-efd6-4827-a131-366705644f3c%2Flogo.png?v=1587550143347");
+            Embed.setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
           message.channel.send({ embed: Embed });
         }

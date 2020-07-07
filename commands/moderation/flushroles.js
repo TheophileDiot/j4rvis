@@ -33,6 +33,7 @@ module.exports = {
     const graphisme = message.guild.roles.cache.find(r => r.name == "Graphisme");
     const chillCast = message.guild.roles.cache.find(r => r.name == "ChillCast");
     const analyseVideo = message.guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
+    const risk = message.guild.roles.cache.find(r => r.name == "Risk");
 
     const modoLoupsGarous = message.guild.roles.cache.find(r => r.name == "Modérateur_Loups_garous");
     const modoSport = message.guild.roles.cache.find(r => r.name == "Modérateur_Sport");
@@ -43,6 +44,7 @@ module.exports = {
     const modoGraphisme = message.guild.roles.cache.find(r => r.name == "Modérateur_Graphisme");
     const modoChillCast = message.guild.roles.cache.find(r => r.name == "Modérateur_ChillCast");
     const modoAnalyseVideo = message.guild.roles.cache.find(r => r.name == "Modérateur_Analyse_Vidéo");
+    const modoRisk = message.guild.roles.cache.find(r => r.name == "Modérateur_Risk");
 
     const administrateur = message.guild.roles.cache.find(r => r.name == "Administrateur");
 
@@ -61,7 +63,8 @@ module.exports = {
           !member.roles.cache.has(modoCodingDojo.id) &&
           !member.roles.cache.has(modoGraphisme.id) &&
           !member.roles.cache.has(modoChillCast.id) &&
-          !member.roles.cache.has(modoAnalyseVideo.id)
+          !member.roles.cache.has(modoAnalyseVideo.id) &&
+          !member.roles.cache.has(modoRisk.id)
         ) {
           if (member.roles.cache.has(loupsGarous.id)) {
             member.roles.remove(loupsGarous);
@@ -101,6 +104,10 @@ module.exports = {
           
           if (member.roles.cache.has(analyseVideo.id)) {
             member.roles.remove(analyseVideo);
+          }
+          
+          if (member.roles.cache.has(risk.id)) {
+            member.roles.remove(risk);
           }
 
           if (member.roles.cache.has(absent.id)) {

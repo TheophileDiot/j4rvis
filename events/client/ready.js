@@ -38,6 +38,7 @@ module.exports = async bot => {
       const graphisme = guild.roles.cache.find(r => r.name == "Graphisme");
       const chillCast = guild.roles.cache.find(r => r.name == "ChillCast");
       const analyseVideo = guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
+      const risk = guild.roles.cache.find(r => r.name == "Risk");
 
       const loupsGarousEmoji = "🐺";
       //const revisionEmoji = "📖";
@@ -49,13 +50,16 @@ module.exports = async bot => {
       const graphismeEmoji = "✏️";
       const chillCastEmoji = "<:CHILLCAST:707929193559883777>";
       const analyseVideoEmoji = "📼";
+      const riskEmoji = "⚔️";
 
       const embed = new MessageEmbed().setTitle("Rôles");
 
       embed.setDescription("Cliquez sur une des réactions ci-dessous pour obtenir le rôle correspondant.\n\n**Merci de n'ajouter qu'une seule réaction !**\n\n*Si vous vous êtes trompé lors de votre choix veuillez enlever votre réaction initiale puis en ajouter une autre.*")
         .setColor(yellow_j4arvis)
-        .setAuthor(`${guild.me.displayName}`, guild.iconURL)
-        .setThumbnail(bot.user.displayAvatarURL)
+        .attachFiles(['./Photos/Logo_j4rvis.png'])
+        .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
+        .setAuthor(`${channel_change.guild.name}`, 'attachment://Logo_INTECH_Activites_a_la_carte.png')
+        .setThumbnail('attachment://Logo_j4rvis.png')
         .addField(
           "Les rôles disponibles:",
           `
@@ -63,13 +67,15 @@ module.exports = async bot => {
              ${sportEmoji} - ${sport}
              ${cinemaEmoji} - ${cinema}
              ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr} **Limitée à 20 personnes**
+             ${jdrEmoji} - ${jdr} **Limitée à 8 personnes**
              ${codingDojoEmoji} - ${codingDojo} **Limitée à 10 personnes**
              ${graphismeEmoji} - ${graphisme}
              ${chillCastEmoji} - ${chillCast}
-             ${analyseVideoEmoji} - ${analyseVideo}
+             ${analyseVideoEmoji} - ${analyseVideo} **Annulée cette semaine**
+             ${riskEmoji} - ${risk}
           `
-        );
+        )
+        .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
       // ${revisionEmoji} - ${revision}
 
@@ -84,9 +90,10 @@ module.exports = async bot => {
         await msg.react(graphismeEmoji);
         await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
         await msg.react(analyseVideoEmoji);
+        await msg.react(riskEmoji);
       });
     
-      channel_change.send(`**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** \n **Va commencer :** \n - 1 one shot (*5 joueurs max / durée : 1-2 séances environ*)\n\n **En cours :** \n  - 1 campagne {résumé de la séance passée dans ${bot.channels.cache.get('700687249825857597')} }  (*6 joueurs actuel / durée : jusqu'à la fin des clubs*) - 2 nouveaux joueurs sont acceptés (fiche perso à voir avec <@!387319193802113025>\n  - 1 one shot (*3 joueurs actuel, 1 séance restante*) Pas de nouveaux acceptés`);
+      channel_change.send(`**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** \n En cours : \n- 1 campagne (7 joueurs, dernière séance, pas de nouveaux acceptés)`);
     } catch (e) {
       console.log(e);
     }
