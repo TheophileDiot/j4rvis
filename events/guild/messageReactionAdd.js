@@ -569,6 +569,7 @@ function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole
   
   const logTentative = "🟠";
   const logDel = "🔴";
+  var listRoles = [enAttenteDeRole.name, loupsGarous.name, sport.name, cinema.name, cycle.name, jdr.name, codingDojo.name, graphisme.name, chillCast.name, analyseVideo.name, risk.name];
   
   if (member.roles.cache.has(modoLoupsGarous.id) || member.roles.cache.has(modoSport.id) || member.roles.cache.has(modoCinema.id) || member.roles.cache.has(modoCycle.id) || member.roles.cache.has(modoJdr.id) || member.roles.cache.has(modoCodingDojo.id) || member.roles.cache.has(modoGraphisme.id) || member.roles.cache.has(modoChillCast.id) || member.roles.cache.has(modoAnalyseVideo.id) || member.roles.cache.has(modoRisk.id)){
     message.channel.send(
@@ -582,75 +583,12 @@ function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole
     return false;
   }
 
-  if (member.roles.cache.has(enAttenteDeRole.id)) {
-    member.roles.remove(enAttenteDeRole);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${enAttenteDeRole.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  /*if (member.roles.cache.has(revision.id)) {
-    member.roles.remove(revision);
-  }*/
-
-  if (member.roles.cache.has(loupsGarous.id)) {
-    member.roles.remove(loupsGarous);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${loupsGarous.name} à l'utilisateur ${member.nickname}.`);
-  }
-  
-  if (member.roles.cache.has(sport.id)) {
-    member.roles.remove(sport);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${sport.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  if (member.roles.cache.has(cinema.id)) {
-    member.roles.remove(cinema);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${cinema.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  if (member.roles.cache.has(cycle.id)) {
-    member.roles.remove(cycle);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${cycle.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  if (member.roles.cache.has(jdr.id)) {
-    member.roles.remove(jdr);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${jdr.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  if (member.roles.cache.has(codingDojo.id)) {
-    member.roles.remove(codingDojo);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${codingDojo.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  if (member.roles.cache.has(graphisme.id)) {
-    member.roles.remove(graphisme);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${graphisme.name} à l'utilisateur ${member.nickname}.`);
-  }
-  
-  if (member.roles.cache.has(chillCast.id)) {
-    member.roles.remove(chillCast);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${chillCast.name} à l'utilisateur ${member.nickname}.`);
-  }
-          
-  if (member.roles.cache.has(analyseVideo.id)) {
-    member.roles.remove(analyseVideo);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${analyseVideo.name} à l'utilisateur ${member.nickname}.`);
-  }
-
-  if (member.roles.cache.has(risk.id)) {
-    member.roles.remove(risk);
-    
-    channel_log.send(`${logDel} Suppression du rôle ${risk.name} à l'utilisateur ${member.nickname}.`);
-  }
+  member.roles.cache.forEach((role) => {
+    if (listRoles.includes(role.name)) {
+      member.roles.remove(role);
+      channel_log.send(`${logDel} Suppression du rôle ${role.name} à l'utilisateur ${member.nickname}.`);
+    }
+  });
   
   return true;
 }
