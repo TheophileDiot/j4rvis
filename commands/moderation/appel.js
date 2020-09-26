@@ -12,13 +12,13 @@ module.exports = {
     aliases: ["call", "app"]
   },
 
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
 
     const channel_appel = message.guild.channels.cache.get("709662934908928081");
-    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    const moderateur = message.guild.roles.cache.find(r => r.name === "Modérateur");
     
     if (!message.member.roles.cache.has(moderateur.id)){
-      if(message.channel != channel_appel) return message.channel.send(`Vous ne lancer pas la commande dans le bon salon, le bon salon est ${channel_appel}.`);
+      if(message.channel !== channel_appel) return message.channel.send(`Vous ne lancer pas la commande dans le bon salon, le bon salon est ${channel_appel}.`);
     }
     
     if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
@@ -41,10 +41,9 @@ module.exports = {
       const presentEmoji = "✅";
       
       let presents_arr = [""];
-      var away_arr = [""];
-      var away_str1 = "";
-      var away_str2 = "";
-      
+      let away_str1 = "";
+      let away_str2 = "";
+
       let sEmbed = new MessageEmbed()
       .setColor(yellow_j4rvis)
       .setTitle("Appel !")
@@ -80,11 +79,11 @@ module.exports = {
         
         await bot.on('messageReactionAdd', (reaction, user) =>{
           if(!user.bot && reaction.emoji.name === "✅"){
-            
-            var membre = message.guild.members.cache.get(user.id);
-            
-            if(membre.nickname != "[AG - Admin] Théophile DIOT" && auto_present){
-              if(membre.nickname == null || membre.nickname == undefined){
+
+            const membre = message.guild.members.cache.get(user.id);
+
+            if(membre.nickname !== "[AG - Admin] Théophile DIOT" && auto_present){
+              if(membre.nickname === null || membre.nickname === undefined){
                 presents_arr.push(membre.user.name);
               } else {
                 presents_arr.push(membre.nickname);
@@ -99,15 +98,15 @@ module.exports = {
           /*for (var i in presents_arr) {
             presents_str += presents_arr[i].concat("\n");
           }*/
-          
-          var away_arr = [''];
-          
+
+          let away_arr = [''];
+
           presents_arr = presents_arr.sort();
           
-          message.guild.members.cache.forEach((membre, key) => {
+          message.guild.members.cache.forEach((membre) => {
             
             if(!presents_arr.includes(membre.nickname) && !membre.user.bot){
-              if(membre.nickname == null || membre.nickname == undefined){
+              if(membre.nickname === null || membre.nickname === undefined){
                 away_arr.push(membre.user.tag);
               } else {
                 away_arr.push(membre.nickname);
@@ -117,7 +116,7 @@ module.exports = {
           
           away_arr = away_arr.sort();
           
-          away_arr.forEach((arr, key) =>{
+          away_arr.forEach((arr) =>{
             if(away_str1.length >= 1950){
               away_str2 += arr.concat("\n");
             } else {
@@ -128,7 +127,7 @@ module.exports = {
           msg.delete();
           message.channel.send("@everyone L'appel est fini !");
           message.channel.send(`Les personnes absentes sont : \n${away_str1}`);
-          if(away_str2 != ""){
+          if(away_str2 !== ""){
             message.channel.send(`${away_str2}`);
           }
         }, 900000);

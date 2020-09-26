@@ -12,11 +12,11 @@ module.exports = {
     
     const member = message.member;
     
-    const modoCodingDojo = message.guild.roles.cache.find(r => r.name == "Modérateur_Coding_Dojo");
-    const codingDojo = message.guild.roles.cache.find(r => r.name == "Coding_Dojo");
+    const modoCodingDojo = message.guild.roles.cache.find(r => r.name === "Modérateur_Coding_Dojo");
+    const codingDojo = message.guild.roles.cache.find(r => r.name === "Coding_Dojo");
     
-    const groupRevision = message.guild.roles.cache.find(r => r.name == "Coding_Dojo_Revision");
-    const groupClassique = message.guild.roles.cache.find(r => r.name == "Coding_Dojo_CLassique");
+    const groupRevision = message.guild.roles.cache.find(r => r.name === "Coding_Dojo_Revision");
+    const groupClassique = message.guild.roles.cache.find(r => r.name === "Coding_Dojo_CLassique");
     
     try {
       

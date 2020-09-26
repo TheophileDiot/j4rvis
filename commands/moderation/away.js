@@ -8,17 +8,17 @@ module.exports = {
     aliases: ["awy"]
   },
 
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
     
-    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    const moderateur = message.guild.roles.cache.find(r => r.name === "Modérateur");
     
     if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
         "Vous ne pouvez pas utiliser cette commande!"
       );
 
-    const absent = message.guild.roles.cache.find(r => r.name == "Absent");
-    const enAttenteDeRole = message.guild.roles.cache.find(r => r.name == "En_attente_de_rôle");
+    const absent = message.guild.roles.cache.find(r => r.name === "Absent");
+    const enAttenteDeRole = message.guild.roles.cache.find(r => r.name === "En_attente_de_rôle");
 
     try {
       
@@ -30,21 +30,21 @@ module.exports = {
         lastMessage = messages.first();
       });
 
-      channel_change.bulkDelete(lastMessage, true);
+      await channel_change.bulkDelete(lastMessage, true);
     
       channel_change.messages.fetch({ limit: 1 }).then(messages => {
         lastMessage = messages.first();
       });
 
-      channel_change.bulkDelete(lastMessage, true);
-      
-      var nbr = 1;
-      
+      await channel_change.bulkDelete(lastMessage, true);
+
+      let nbr = 1;
+
       const channel = message.guild.channels.cache.get("702963106090975337");
-      
-      var content = "**LISTE DES ABSENTS : ** \n\n";
-      
-      message.guild.members.cache.forEach((member, key) => {
+
+      let content = "**LISTE DES ABSENTS : ** \n\n";
+
+      message.guild.members.cache.forEach((member) => {
         if (!member.user.bot && member.roles.cache.has(enAttenteDeRole.id)) {
           
           member.roles.remove(enAttenteDeRole)

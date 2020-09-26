@@ -28,11 +28,11 @@ module.exports = {
                                                 .then(msg => {
                                                   msg.delete({ timeout: 2500 });
                                                 });
-      
-      var tempsM = tempstt.split("'")[0];
-      
-      var tempsS = tempstt.split("'")[1];
-      
+
+      let tempsM = tempstt.split("'")[0];
+
+      let tempsS = tempstt.split("'")[1];
+
       if(tempsS > 60) return message.channel.send("Vous avez mis une trop grande valeur pour les millisecondes !")
                               .then(msg => {
                                 msg.delete({ timeout: 2500 });
@@ -41,12 +41,12 @@ module.exports = {
       tempsM = tempsM * 60000;
       tempsS = tempsS * 1000;
       
-      if(tempsM == 0){
+      if(tempsM === 0){
         message.channel.send(`Lancement d'un timer de ${tempsS / 1000} seconde(s) !`)
         .then(msg => {
           msg.delete({ timeout: (tempsM + tempsS) });
         });
-      } else if(tempsS == 0){
+      } else if(tempsS === 0){
         message.channel.send(`Lancement d'un timer de ${tempsM / 60000} minute(s) !`)
         .then(msg => {
           msg.delete({ timeout: (tempsM + tempsS) });

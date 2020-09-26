@@ -15,11 +15,11 @@ module.exports = {
     
     const member = message.member;
     
-    const modoCodingDojo = message.guild.roles.cache.find(r => r.name == "Modérateur_Coding_Dojo");
-    const codingDojo = message.guild.roles.cache.find(r => r.name == "Coding_Dojo");
+    const modoCodingDojo = message.guild.roles.cache.find(r => r.name === "Modérateur_Coding_Dojo");
+    const codingDojo = message.guild.roles.cache.find(r => r.name === "Coding_Dojo");
     
-    const groupRevision = message.guild.roles.cache.find(r => r.name == "Coding_Dojo_Revision");
-    const groupClassique = message.guild.roles.cache.find(r => r.name == "Coding_Dojo_CLassique");
+    const groupRevision = message.guild.roles.cache.find(r => r.name === "Coding_Dojo_Revision");
+    const groupClassique = message.guild.roles.cache.find(r => r.name === "Coding_Dojo_CLassique");
     
     try {
       
@@ -35,27 +35,27 @@ module.exports = {
                                                           msg.delete({ timeout: 2500 });
                                                         });
       }
+
+
+        let groups = args.slice(0).join(" ");
+
+        groups = groups.split("|");
       
-      
-      var groups = args.slice(0).join(" ");
-      
-      groups = groups.split("|");
-      
-      if(groups[0] == undefined) return message.channel.send("Vous ne créez aucun groupe !")
+      if(groups[0] === undefined) return message.channel.send("Vous ne créez aucun groupe !")
                                       .then(msg => {
                                         msg.delete({ timeout: 2500 });
                                       });
       
-      if(groups[3] != undefined) return message.channel.send("Vous dépassez la limite des 3 groupes !")
+      if(groups[3] !== undefined) return message.channel.send("Vous dépassez la limite des 3 groupes !")
                                       .then(msg => {
                                         msg.delete({ timeout: 2500 });
                                       });
       
-      if(groups[0] != undefined){
+      if(groups[0] !== undefined){
         var group1_str = generateGroups(codingDojo, groupRevision, groups[0].split(";"), group1_str, message);
       }
       
-      if(groups[0] != undefined && groups[1] != undefined){
+      if(groups[0] !== undefined && groups[1] !== undefined){
         var group2_str = generateGroups(codingDojo, groupClassique, groups[1].split(";"), group2_str, message);
       }
       
@@ -69,13 +69,13 @@ module.exports = {
       
       Embed.addField(`**Groupe 1**`, `${group1_str}`, true);
       
-      if(group2_str != undefined){
+      if(group2_str !== undefined){
         Embed.addField(`**Groupe 2**`, `${group2_str}`, true);
       }
       
       Embed.setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
-      message.channel.send({ embed: Embed });
+      await message.channel.send({embed: Embed});
       
     } catch(e) {
       console.log(e);
@@ -89,7 +89,7 @@ function generateGroups(codingDojo, groupCodingDojo, group, group_str, message){
   
   group_str = "";
   
-  group.forEach((membre, key) => {
+  group.forEach((membre) => {
         
         membre = membre.trim();
         membre = membre.substring(3, membre.length - 1);

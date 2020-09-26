@@ -9,9 +9,9 @@ module.exports = {
     aliases: ["listusersactivity", "lua"]
   },
 
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
 
-    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    const moderateur = message.guild.roles.cache.find(r => r.name === "Modérateur");
     
     if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
@@ -28,10 +28,10 @@ module.exports = {
             msg.delete({ timeout: 2500 });
           });
       } else {
-        var content_arr = [""];
-        var content_str = "";
-        
-        message.guild.members.cache.forEach((member, key) => {
+        let content_arr = [""];
+        let content_str = "";
+
+        message.guild.members.cache.forEach((member) => {
         if (!member.user.bot && member.roles.cache.has(role.id)) {
           
           if(member.nickname != null){

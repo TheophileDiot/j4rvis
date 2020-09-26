@@ -20,7 +20,7 @@ module.exports = {
     const embed = new MessageEmbed()
       .setColor(yellow_j4rvis)
       .setAuthor(`${message.guild.me.displayName} Help`, message.guild.iconURL)
-      .setThumbnail(bot.user.displayAvatarURL);
+      .setThumbnail(bot.user.displayAvatarURL.toString());
 
     if (!args[0]) {
       const categories = readdirSync("./commands/");
@@ -30,7 +30,7 @@ module.exports = {
       );
       embed.setFooter(
         `© ${message.guild.me.displayName} | Nombre de commandes: ${bot.commands.size}`,
-        bot.user.displayAvatarURL
+        bot.user.displayAvatarURL.toString()
       );
 
       categories.forEach(category => {

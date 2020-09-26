@@ -15,12 +15,12 @@ module.exports = {
     
     const member = message.member;
     
-    const modoJdr = message.guild.roles.cache.find(r => r.name == "Modérateur_JDR");
-    const jdr = message.guild.roles.cache.find(r => r.name == "JDR");
+    const modoJdr = message.guild.roles.cache.find(r => r.name === "Modérateur_JDR");
+    const jdr = message.guild.roles.cache.find(r => r.name === "JDR");
     
-    const groupjdr1 = message.guild.roles.cache.find(r => r.name == "group1_jdr");
-    const groupjdr2 = message.guild.roles.cache.find(r => r.name == "group2_jdr");
-    const groupjdr3 = message.guild.roles.cache.find(r => r.name == "group3_jdr");
+    const groupjdr1 = message.guild.roles.cache.find(r => r.name === "group1_jdr");
+    const groupjdr2 = message.guild.roles.cache.find(r => r.name === "group2_jdr");
+    const groupjdr3 = message.guild.roles.cache.find(r => r.name === "group3_jdr");
     
     try {
       
@@ -36,31 +36,31 @@ module.exports = {
                                                           msg.delete({ timeout: 2500 });
                                                         });
       }
-      
-      
-      var groups = args.slice(0).join(" ");
-      
+
+
+      let groups = args.slice(0).join(" ");
+
       groups = groups.split("|");
       
-      if(groups[0] == undefined) return message.channel.send("Vous ne créez aucun groupe !")
+      if(groups[0] === undefined) return message.channel.send("Vous ne créez aucun groupe !")
                                       .then(msg => {
                                         msg.delete({ timeout: 2500 });
                                       });
       
-      if(groups[3] != undefined) return message.channel.send("Vous dépassez la limite des 3 groupes !")
+      if(groups[3] !== undefined) return message.channel.send("Vous dépassez la limite des 3 groupes !")
                                       .then(msg => {
                                         msg.delete({ timeout: 2500 });
                                       });
       
-      if(groups[0] != undefined){
+      if(groups[0] !== undefined){
         var group1_str = generateGroups(jdr, groupjdr1, groups[0].split(";"), group1_str, message);
       }
       
-      if(groups[0] != undefined && groups[1] != undefined){
+      if(groups[0] !== undefined && groups[1] !== undefined){
         var group2_str = generateGroups(jdr, groupjdr2, groups[1].split(";"), group2_str, message);
       }
       
-      if(groups[0] != undefined && groups[1] != undefined && groups[2] != undefined){
+      if(groups[0] !== undefined && groups[1] !== undefined && groups[2] !== undefined){
         var group3_str = generateGroups(jdr, groupjdr3, groups[2].split(";"), group3_str, message);
       }
       
@@ -74,7 +74,7 @@ module.exports = {
       
       Embed.addField(`**Groupe 1**`, `${group1_str}`, true);
       
-      if(group2_str != undefined){
+      if(group2_str !== undefined){
         Embed.addField(`**Groupe 2**`, `${group2_str}`, true);
       }
       
@@ -84,7 +84,7 @@ module.exports = {
       
       Embed.setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
-      message.channel.send({ embed: Embed });
+      await message.channel.send({embed: Embed});
       
     } catch(e) {
       console.log(e);

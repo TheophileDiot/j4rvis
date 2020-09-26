@@ -12,12 +12,12 @@ module.exports = {
     
     const member = message.member;
     
-    const modoJdr = message.guild.roles.cache.find(r => r.name == "Modérateur_JDR");
-    const jdr = message.guild.roles.cache.find(r => r.name == "JDR");
+    const modoJdr = message.guild.roles.cache.find(r => r.name === "Modérateur_JDR");
+    const jdr = message.guild.roles.cache.find(r => r.name === "JDR");
     
-    const groupjdr1 = message.guild.roles.cache.find(r => r.name == "group1_jdr");
-    const groupjdr2 = message.guild.roles.cache.find(r => r.name == "group2_jdr");
-    const groupjdr3 = message.guild.roles.cache.find(r => r.name == "group3_jdr");
+    const groupjdr1 = message.guild.roles.cache.find(r => r.name === "group1_jdr");
+    const groupjdr2 = message.guild.roles.cache.find(r => r.name === "group2_jdr");
+    const groupjdr3 = message.guild.roles.cache.find(r => r.name === "group3_jdr");
     
     try {
       

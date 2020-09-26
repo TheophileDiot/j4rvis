@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["pi"]
   },
 
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
     message.channel.send("Pinging...").then(m => {
       let ping = m.createdTimestamp - message.createdTimestamp;
       let choices = [

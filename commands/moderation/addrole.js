@@ -10,7 +10,7 @@ module.exports = {
 
   run: async (bot, message, args) => {
     
-    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    const moderateur = message.guild.roles.cache.find(r => r.name === "Modérateur");
     
     if (!message.member.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
@@ -26,8 +26,8 @@ module.exports = {
         "Veuillez fournir un utilisateur auquel ajouter le rôle."
       );
     let role =
-      message.guild.roles.cache.find(r => r.name == args[1]) ||
-      message.guild.roles.cache.find(r => r.id == args[1]) ||
+      message.guild.roles.cache.find(r => r.name === args[1]) ||
+      message.guild.roles.cache.find(r => r.id === args[1]) ||
       message.mentions.roles.first();
     if (!role)
       return message.channel.send(
