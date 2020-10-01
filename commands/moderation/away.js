@@ -40,7 +40,7 @@ module.exports = {
 
       let nbr = 1;
 
-      const channel = message.guild.channels.cache.get("702963106090975337");
+      const channel_away = message.guild.channels.cache.get("702804031034228737");
 
       let content = "**LISTE DES ABSENTS : ** \n\n";
 
@@ -62,7 +62,7 @@ module.exports = {
         }
       });
 
-      channel.send(content);
+      channel_away.send(content);
       message.delete();
       
     } catch (e) {
