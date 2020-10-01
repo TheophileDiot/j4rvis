@@ -21,40 +21,47 @@ module.exports = {
     ]
   },
 
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
     try {
       const channel_change = message.guild.channels.cache.get("700683266373582878");
-      /*const channel_test = message.guild.channels.cache.get(
-        "700751796808843336"
-      );*/
 
-      const loupsGarous = message.guild.roles.cache.find(r => r.name == "Loups_garous");
-      //const revision = message.guild.roles.cache.find(r => r.name == "Révision");
-      const sport = message.guild.roles.cache.find(r => r.name == "Sport");
-      const cinema = message.guild.roles.cache.find(r => r.name == "Cinéma");
-      const cycle = message.guild.roles.cache.find(r => r.name == "Cycle");
-      const jdr = message.guild.roles.cache.find(r => r.name == "JDR");
-      const codingDojo = message.guild.roles.cache.find(r => r.name == "Coding_Dojo");
-      const graphisme = message.guild.roles.cache.find(r => r.name == "Graphisme");
-      const chillCast = message.guild.roles.cache.find(r => r.name == "ChillCast");
-      const analyseVideo = message.guild.roles.cache.find(r => r.name == "Analyse_Vidéo");
-      const risk = message.guild.roles.cache.find(r => r.name == "Risk");
+      const jdr = message.guild.roles.cache.find(r => r.name === "JDR");
+      const club_tech = message.guild.roles.cache.find(r => r.name === "Club_Tech");
+      const esport = message.guild.roles.cache.find(r => r.name === "Esport");
+      const final_club_pro = message.guild.roles.cache.find(r => r.name === "Final_Club_Pro");
+      const carista_stream = message.guild.roles.cache.find(r => r.name === "CaritaStream");
+      const business = message.guild.roles.cache.find(r => r.name === "Business");
+      const cafe_philo = message.guild.roles.cache.find(r => r.name === "Café_Philo");
+      const jeux_en_ligne = message.guild.roles.cache.find(r => r.name === "Jeux_en_ligne");
+      const petanque = message.guild.roles.cache.find(r => r.name === "Pétanque");
+      const diapo_expo = message.guild.roles.cache.find(r => r.name === "Diapo_expo");
+      const shutdown = message.guild.roles.cache.find(r => r.name === "Shutdown");
+      const world_building = message.guild.roles.cache.find(r => r.name === "world_building");
+      const orny_photo = message.guild.roles.cache.find(r => r.name === "OrnyPhoto");
+      const velo = message.guild.roles.cache.find(r => r.name === "Vélo");
+      const sauvons_nos_toilettes = message.guild.roles.cache.find(r => r.name === "Sauvons_nos_toilettes");
+      const art_school = message.guild.roles.cache.find(r => r.name === "ArtSchool");
 
-      const loupsGarousEmoji = "🐺";
-      //const revisionEmoji = "📖";
-      const sportEmoji = "💪";
-      const cinemaEmoji = "🎦";
-      const cycleEmoji = "🃏";
       const jdrEmoji = "🐉";
-      const codingDojoEmoji = "👨‍💻";
-      const graphismeEmoji = "✏️";
-      const chillCastEmoji = "<:CHILLCAST:707929193559883777>";
-      const analyseVideoEmoji = "📼";
-      const riskEmoji = "⚔️";
+      const club_techEmoji = "🧑‍💻";
+      const esportEmoji = "🎮";
+      const final_club_proEmoji = "<:montage_video:760882711823908926>";
+      const carista_streamEmoji = "📹";
+      const businessEmoji = "💼";
+      const cafe_philoEmoji = "💭";
+      const jeux_en_ligneEmoji = "🎲";
+      const petanqueEmoji = "🏐";
+      const diapo_expoEmoji = "<:Powerpoint:760883523212017707>";
+      const shutdownEmoji = "👾";
+      const world_buildingEmoji = "🌍";
+      const orny_photoEmoji = "🖼";
+      const veloEmoji = "🚴‍♂️";
+      const sauvons_nos_toilettesEmoji = "🚽";
+      const art_schoolEmoji = "🎨";
 
       const embed = new MessageEmbed().setTitle("Activités");
 
-      if (message.channel == channel_change.id /*|| message.channel == channel_test.id*/) {
+      if (message.channel === channel_change.id) {
         embed.setDescription(
           "Cliquez sur une des réactions ci-dessous pour obtenir le rôle correspondant.\n\n**Merci de n'ajouter qu'une seule réaction !**\n\n*Si vous vous êtes trompé lors de votre choix veuillez enlever votre réaction initiale puis en ajouter une autre.*"
         );
@@ -71,35 +78,44 @@ module.exports = {
         .addField(
           "Les activités disponibles:",
           `
-             ${loupsGarousEmoji} - ${loupsGarous}
-             ${sportEmoji} - ${sport}
-             ${cinemaEmoji} - ${cinema}
-             ${cycleEmoji} - ${cycle}
-             ${jdrEmoji} - ${jdr} **Limitée à 16 personnes**
-             ${codingDojoEmoji} - ${codingDojo} **Annulée cette semaine**
-             ${graphismeEmoji} - ${graphisme}
-             ${chillCastEmoji} - ${chillCast}
-             ${analyseVideoEmoji} - ${analyseVideo}
-             ${riskEmoji} - ${risk} **Nouvelle activité**
+             ${jdrEmoji} - ${jdr}
+             ${club_techEmoji} - ${club_tech}
+             ${esportEmoji} - ${esport}
+             ${final_club_proEmoji} - ${final_club_pro}
+             ${carista_streamEmoji} - ${carista_stream}
+             ${businessEmoji} - ${business}
+             ${cafe_philoEmoji} - ${cafe_philo}
+             ${jeux_en_ligneEmoji} - ${jeux_en_ligne}
+             ${petanqueEmoji} - ${petanque}
+             ${diapo_expoEmoji} - ${diapo_expo}
+             ${shutdownEmoji} - ${shutdown}
+             ${world_buildingEmoji} - ${world_building}
+             ${orny_photoEmoji} - ${orny_photo}
+             ${veloEmoji} - ${velo}
+             ${sauvons_nos_toilettesEmoji} - ${sauvons_nos_toilettes}
+             ${art_schoolEmoji} - ${art_school}
           `
         )
         .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
-      // ${revisionEmoji} - ${revision}
-
       message.channel.send(embed).then(async msg => {
-        if (message.channel == channel_change.id /*|| message.channel == channel_test.id*/) {
-          await msg.react(loupsGarousEmoji);
-          // await msg.react(revisionEmoji);
-          await msg.react(sportEmoji);
-          await msg.react(cinemaEmoji);
-          await msg.react(cycleEmoji);
+        if (message.channel === channel_change.id) {
           await msg.react(jdrEmoji);
-          await msg.react(codingDojoEmoji);
-          await msg.react(graphismeEmoji);
-          await msg.react(chillCastEmoji.substring(12, chillCastEmoji.length - 1));
-          await msg.react(analyseVideoEmoji);
-          await msg.react(riskEmoji);
+          await msg.react(club_techEmoji);
+          await msg.react(esportEmoji);
+          await msg.react(final_club_proEmoji.substring(16, final_club_proEmoji.length - 1));
+          await msg.react(carista_streamEmoji);
+          await msg.react(businessEmoji);
+          await msg.react(cafe_philoEmoji);
+          await msg.react(jeux_en_ligneEmoji);
+          await msg.react(petanqueEmoji);
+          await msg.react(diapo_expoEmoji.substring(13, diapo_expoEmoji.length - 1));
+          await msg.react(shutdownEmoji);
+          await msg.react(world_buildingEmoji);
+          await msg.react(orny_photoEmoji);
+          await msg.react(veloEmoji);
+          await msg.react(sauvons_nos_toilettesEmoji);
+          await msg.react(art_schoolEmoji);
         }
       });
       

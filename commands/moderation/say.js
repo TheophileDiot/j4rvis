@@ -10,7 +10,7 @@ module.exports = {
 
   run: async (bot, message, args) => {
     
-    const moderateur = message.guild.roles.cache.find(r => r.name == "Modérateur");
+    const moderateur = message.guild.roles.cache.find(r => r.name === "Modérateur");
     
     if (!message.member.hasPermission(["ADMINISTRATOR"]) && !message.member.roles.cache.has(moderateur.id))
       return message.channel.send(
@@ -23,7 +23,7 @@ module.exports = {
     message.delete();
     if (mChannel) {
       argsresult = args.slice(1).join(" ");
-      mChannel.send(argsresult);
+      await mChannel.send(argsresult);
     } else {
       argsresult = args.join(" ");
       message.channel.send(argsresult);

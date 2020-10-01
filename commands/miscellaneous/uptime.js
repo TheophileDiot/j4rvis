@@ -8,7 +8,7 @@ module.exports = {
     aliases: ["ut"]
   },
 
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
     function duration(ms) {
       const sec = Math.floor((ms / 1000) % 60).toString();
       const min = Math.floor((ms / (1000 * 60)) % 60).toString();

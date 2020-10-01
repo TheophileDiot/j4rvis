@@ -12,7 +12,7 @@ module.exports = {
     aliases: ["ui"]
   },
   
-  run: async (bot, message, args) => {
+  run: async (bot, message) => {
     const member = message.mentions.members.first() || message.member;
     
     let uEmbed = new MessageEmbed()
@@ -28,7 +28,7 @@ module.exports = {
       .addField("**Créé le:**",`${moment.utc(member.user.createdAt).format("LLL")}`,true)
       .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
-    message.channel.send({ embed: uEmbed });
+    await message.channel.send({embed: uEmbed});
     message.delete();
   }
 };

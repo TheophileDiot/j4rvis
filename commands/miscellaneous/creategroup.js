@@ -26,7 +26,7 @@ module.exports = {
           .then(msg => {
             msg.delete({ timeout: 2500 });
           });
-      } else if(nbrgroups == ""){
+      } else if(nbrgroups === ""){
         message.channel.send("Veuillez préciser le nombre de groupes que vous voulez créer !")
           .then(msg => {
             msg.delete({ timeout: 2500 });
@@ -42,8 +42,8 @@ module.exports = {
             msg.delete({ timeout: 2500 });
           });
       } else {
-        var members = message.guild.roles.cache.get(role.id).members.map(m=>m.nickname);
-        
+        let members = message.guild.roles.cache.get(role.id).members.map(m => m.nickname);
+
         if(members.size <= nbrgroups){
           message.channel.send(`Vous créez trop de groupes pour le nombre d'utilisateurs ayant le rôle ${role.name} !`)
             .then(msg => {
@@ -57,15 +57,15 @@ module.exports = {
         } else {
           
           members = shuffle(members);
-          
+
           var list = [""];
           let y = 0;
           
           for (let i = 0; i < members.length; i++) {
-            if(members[i] != undefined){
+            if(members[i] !== undefined){
               list[y] += "".concat(members[i].substring(members[i].indexOf("]")+1), ", ");
             
-              if(y == nbrgroups - 1){
+              if(y === nbrgroups - 1){
                 y = 0;
               } else {
                 y += 1;
@@ -93,7 +93,7 @@ module.exports = {
           
             Embed.setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
-          message.channel.send({ embed: Embed });
+          await message.channel.send({ embed: Embed });
         }
       }
       
@@ -106,7 +106,7 @@ module.exports = {
 };
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  let currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
