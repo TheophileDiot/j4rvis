@@ -19,14 +19,9 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setColor(yellow_j4rvis)
-<<<<<<< HEAD
-      .setAuthor(`${message.guild.me.displayName} Help`, message.guild.iconURL)
-      .setThumbnail(bot.user.displayAvatarURL.toString());
-=======
       .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
       .setThumbnail('attachment://Logo_INTECH_Activites_a_la_carte.png')
       .setAuthor(`${message.guild.name}`, 'attachment://Logo_INTECH_Activites_a_la_carte.png');
->>>>>>> glitch
 
     if (!args[0]) {
       const categories = readdirSync("./commands/");
@@ -34,17 +29,6 @@ module.exports = {
       embed.setDescription(
         `Voici les commandes disponibles pour ${message.guild.me.displayName}\nLe préfix du bot est: **${prefix}**`
       );
-<<<<<<< HEAD
-      embed.setFooter(
-        `© ${message.guild.me.displayName} | Nombre de commandes: ${bot.commands.size}`,
-        bot.user.displayAvatarURL.toString()
-      );
-=======
-      
-      // embed.setFooter(
-        // 'attachment://Logo_INTECH_Activites_a_la_carte.png', `Nombre de commandes: ${bot.commands.size}`, 'attachment://Logo_j4rvis.png'
-      // );
->>>>>>> glitch
 
       categories.forEach(category => {
         const dir = bot.commands.filter(c => c.config.category === category);
