@@ -2,7 +2,11 @@ const { MessageEmbed } = require("discord.js");
 const { yellow_j4rvis } = require("../../colours.json");
 
 module.exports = async bot => {
+<<<<<<< HEAD
   bot.channels.cache.get("715825298704302080").send(":gear: le bot a redémarré !");
+=======
+  bot.channels.cache.get("761145607846101003").send(":gear: le bot a redémarré !");
+>>>>>>> glitch
   
   console.log(`${bot.user.username} is online`);
   await bot.user.setActivity("Sniping trollers", {type: "WATCHING"});
