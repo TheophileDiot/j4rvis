@@ -35,6 +35,9 @@ module.exports = async bot => {
       const velo = guild.roles.cache.find(r => r.name === "Vélo");
       const sauvons_nos_toilettes = guild.roles.cache.find(r => r.name === "Sauvons_nos_toilettes");
       const art_school = guild.roles.cache.find(r => r.name === "ArtSchool");
+      const magic = guild.roles.cache.find(r => r.name === "Magic");
+      const poker = guild.roles.cache.find(r => r.name === "Poker");
+      const lecture = guild.roles.cache.find(r => r.name === "Lecture");
 
       const jdrEmoji = "🐉";
       const club_techEmoji = "🧑‍💻";
@@ -52,6 +55,9 @@ module.exports = async bot => {
       const veloEmoji = "🚴‍♂️";
       const sauvons_nos_toilettesEmoji = "🚽";
       const art_schoolEmoji = "🎨";
+      const magicEmoji = "🪄";
+      const pokeremoji = "🃏";
+      const lectureEmoji = "📖";
 
       const embed = new MessageEmbed().setTitle("Rôles");
 
@@ -74,12 +80,15 @@ module.exports = async bot => {
              ${jeux_en_ligneEmoji} - ${jeux_en_ligne}
              ${petanqueEmoji} - ${petanque}
              ${diapo_expoEmoji} - ${diapo_expo}
-             ${shutdownEmoji} - ${shutdown}
+             ${shutdownEmoji} - ${shutdown} **Activité supprimée**
              ${world_buildingEmoji} - ${world_building}
              ${orny_photoEmoji} - ${orny_photo}
              ${veloEmoji} - ${velo}
              ${sauvons_nos_toilettesEmoji} - ${sauvons_nos_toilettes}
              ${art_schoolEmoji} - ${art_school}
+             ${magicEmoji} - ${magic} **Nouvelle activité**
+             ${pokeremoji} - ${poker} **Nouvelle activité**
+             ${lectureEmoji} - ${lecture} **Nouvelle activité**
           `
         )
         .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
@@ -95,12 +104,14 @@ module.exports = async bot => {
         await msg.react(jeux_en_ligneEmoji);
         await msg.react(petanqueEmoji);
         await msg.react(diapo_expoEmoji.substring(13, diapo_expoEmoji.length - 1));
-        await msg.react(shutdownEmoji);
         await msg.react(world_buildingEmoji);
         await msg.react(orny_photoEmoji);
         await msg.react(veloEmoji);
         await msg.react(sauvons_nos_toilettesEmoji);
         await msg.react(art_schoolEmoji);
+        await msg.react(magicEmoji);
+        await msg.react(pokeremoji);
+        await msg.react(lectureEmoji);
       });
     
       // channel_change.send(`**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** \n En cours : \n- 1 campagne (7 joueurs, dernière séance, pas de nouveaux acceptés)`);

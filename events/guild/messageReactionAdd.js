@@ -27,6 +27,9 @@ module.exports = async (bot, messageReaction, user) => {
     const velo = message.guild.roles.cache.find(r => r.name === "Vélo");
     const sauvons_nos_toilettes = message.guild.roles.cache.find(r => r.name === "Sauvons_nos_toilettes");
     const art_school = message.guild.roles.cache.find(r => r.name === "ArtSchool");
+    const magic = message.guild.roles.cache.find(r => r.name === "Magic");
+    const poker = message.guild.roles.cache.find(r => r.name === "Poker");
+    const lecture = message.guild.roles.cache.find(r => r.name === "Lecture");
 
     const modo_jdr = message.guild.roles.cache.find(r => r.name === "Modérateur_JDR");
     const modo_club_tech = message.guild.roles.cache.find(r => r.name === "Modérateur_Club_Tech");
@@ -90,87 +93,107 @@ module.exports = async (bot, messageReaction, user) => {
                 });*/
 
     if (
-      ["🐉", "🧑‍💻", "🎮", "montage_video", "📹", "💼", "💭", "🎲", "🏐", "Powerpoint", "👾", "🌍", "🖼", "🚴‍♂️", "🚽", "🎨"].includes(
+      ["🐉", "🧑‍💻", "🎮", "montage_video", "📹", "💼", "💭", "🎲", "🏐", "Powerpoint", "🌍", "🖼", "🚴‍♂️", "🚽", "🎨", "🪄", "🃏", "📖"].includes(
         messageReaction.emoji.name) && message.channel.id === channel_change.id
     ) {
       switch (messageReaction.emoji.name) {
         case "🐉":
-          globalCheck(bot, jdr, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, jdr, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🧑‍💻":
-          globalCheck(bot, club_tech, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, club_tech, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🎮":
-          globalCheck(bot, esport, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, esport, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "montage_video":
-          globalCheck(bot, final_club_pro, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, final_club_pro, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "📹":
-          globalCheck(bot, carista_stream, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, carista_stream, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "💼":
-          globalCheck(bot, business, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, business, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "💭":
-          globalCheck(bot, cafe_philo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, cafe_philo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
           
         case "🎲":
-          globalCheck(bot, jeux_en_ligne, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, jeux_en_ligne, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🏐":
-          globalCheck(bot, petanque, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, petanque, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "Powerpoint":
-          globalCheck(bot, diapo_expo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, diapo_expo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "👾":
-          globalCheck(bot, shutdown, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          message.channel
+                .send(
+                  `${member} L'activité ${shutdown.name} est annulée cette semaine.`
+                )
+                .then(msg => {
+                  msg.delete({ timeout: 2500 });
+                });
+
+          // globalCheck(bot, shutdown, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🌍":
-          globalCheck(bot, world_building, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, world_building, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🖼":
-          globalCheck(bot, orny_photo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, orny_photo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🚴‍♂️":
-          globalCheck(bot, velo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, velo, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🚽":
-          globalCheck(bot, sauvons_nos_toilettes, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, sauvons_nos_toilettes, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
 
         case "🎨":
-          globalCheck(bot, art_school, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log);
+          globalCheck(bot, art_school, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
+
+          break;
+        case "🪄":
+          globalCheck(bot, magic, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
+
+          break;
+        case "🃏":
+          globalCheck(bot, poker, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
+
+          break;
+        case "📖":
+          globalCheck(bot, lecture, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log);
 
           break;
       }
@@ -184,7 +207,7 @@ module.exports = async (bot, messageReaction, user) => {
   }
 };
 
-function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log){
+function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log){
   
   const logTentative = "🟠";
   const logDel = "🔴";
@@ -235,10 +258,10 @@ function checkNickname(member, moderateur, administrateur, ressource){
   return true;
 }
 
-function globalCheck(bot, role, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log) {
+function globalCheck(bot, role, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log) {
   if (!member.roles.cache.has(role.id)) {
     if (checkNickname(member, moderateur, administrateur, ressource)) {
-      if (checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, channel_log)){
+      if (checkRoles(member, message, administrateur, moderateur, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_carista_stream, carista_stream, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_en_ligne, jeux_en_ligne, modo_petanque, petanque, modo_diapo_expo, diapo_expo, modo_shutdown, shutdown, modo_world_building, world_building, modo_orny_photo, orny_photo, modo_velo, velo, modo_sauvons_nos_toilettes, sauvons_nos_toilettes, modo_art_school, art_school, magic, poker, lecture, channel_log)){
         member.roles.add(role);
 
         message.channel
