@@ -10,6 +10,7 @@ module.exports = async (bot, messageReaction, user) => {
     const enAttenteDeRole = message.guild.roles.cache.find(r => r.name === "En_attente_de_rôle");
 
     const ressource = message.guild.roles.cache.find(r => r.name === "Ressource");
+    const ancien = message.guild.roles.cache.find(r => r.name === "Ancien");
 
     const jdr = message.guild.roles.cache.find(r => r.name === "JDR");
     const club_tech = message.guild.roles.cache.find(r => r.name === "Club_Tech");
@@ -94,7 +95,7 @@ module.exports = async (bot, messageReaction, user) => {
 
     if (
       ["🐉", "🧑‍💻", "🎮", "montage_video", "📹", "💼", "💭", "🎲", "🏐", "Powerpoint", "🌍", "🖼", "🚴‍♂️", "🚽", "🎨", "🪄", "🃏", "📖"].includes(
-        messageReaction.emoji.name) && message.channel.id === channel_change.id
+        messageReaction.emoji.name) && message.channel.id === channel_change.id && !member.roles.cache.has(ancien.id)
     ) {
       switch (messageReaction.emoji.name) {
         case "🐉":
@@ -197,6 +198,15 @@ module.exports = async (bot, messageReaction, user) => {
 
           break;
       }
+    } else if (member.roles.cache.has(ancien)) {
+      message.channel.send(
+        `${member.user} vous êtes un ancien, vous ne pouvez choisir une activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+      ) .then(msg => {
+          msg.delete({ timeout: 5000 });
+      });
+
+      await message.reactions.resolve(messageReaction.emoji.id).users.remove(member.user);
+      channel_log.send(`${logTentative} Tentative d'ajout d'un rôle à l'utilisateur ${member.nickname} mais l'utilisateur est un ancien.`);
     } else {
       if (message.channel.id === channel_change.id){
         await message.reactions.resolve(messageReaction.emoji.id).users.remove(member.user);

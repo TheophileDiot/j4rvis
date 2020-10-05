@@ -22,6 +22,7 @@ module.exports = {
     const absent = message.guild.roles.cache.find(r => r.name === "Absent");
     
     const ressource = message.guild.roles.cache.find(r => r.name === "Ressource");
+    const ancien = message.guild.roles.cache.find(r => r.name === "Ancien");
 
     const jdr = message.guild.roles.cache.find(r => r.name === "JDR");
     const club_tech = message.guild.roles.cache.find(r => r.name === "Club_Tech");
@@ -59,7 +60,7 @@ module.exports = {
 
     const administrateur = message.guild.roles.cache.find(r => r.name === "Administrateur");
 
-    const listRoles = [enAttenteDeRole.name, jdr.name, club_tech.name, esport.name, final_club_pro.name, carista_stream.name, business.name, cafe_philo.name, jeux_en_ligne.name, petanque.name, diapo_expo.name, shutdown.name, world_building.name, orny_photo.name, velo.name, sauvons_nos_toilettes.name, art_school.name];
+    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, carista_stream.name, business.name, cafe_philo.name, jeux_en_ligne.name, petanque.name, diapo_expo.name, shutdown.name, world_building.name, orny_photo.name, velo.name, sauvons_nos_toilettes.name, art_school.name];
 
     try {
       message.guild.members.cache.forEach((member) => {
@@ -68,6 +69,7 @@ module.exports = {
           !member.roles.cache.has(moderateur.id) &&
           !member.roles.cache.has(administrateur.id) &&
           !member.roles.cache.has(ressource.id) &&
+          !member.roles.cache.has(ancien.id) &&
           !member.roles.cache.has(modo_jdr.id) &&
           !member.roles.cache.has(modo_club_tech.id) &&
           !member.roles.cache.has(modo_esport.id) &&
