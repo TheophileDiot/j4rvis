@@ -26,7 +26,7 @@ module.exports = async bot => {
       const carista_stream = guild.roles.cache.find(r => r.name === "CaritaStream");
       const business = guild.roles.cache.find(r => r.name === "Business");
       const cafe_philo = guild.roles.cache.find(r => r.name === "Café_Philo");
-      const jeux_en_ligne = guild.roles.cache.find(r => r.name === "Jeux_en_ligne");
+      const jeux_de_société_en_ligne = guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
       const petanque = guild.roles.cache.find(r => r.name === "Pétanque");
       const diapo_expo = guild.roles.cache.find(r => r.name === "Diapo_expo");
       const shutdown = guild.roles.cache.find(r => r.name === "Shutdown");
@@ -46,7 +46,7 @@ module.exports = async bot => {
       const carista_streamEmoji = "📹";
       const businessEmoji = "💼";
       const cafe_philoEmoji = "💭";
-      const jeux_en_ligneEmoji = "🎲";
+      const jeux_de_société_en_ligneEmoji = "🎲";
       const petanqueEmoji = "🏐";
       const diapo_expoEmoji = "<:Powerpoint:760883523212017707>";
       const shutdownEmoji = "👾";
@@ -77,7 +77,7 @@ module.exports = async bot => {
              ${carista_streamEmoji} - ${carista_stream}
              ${businessEmoji} - ${business}
              ${cafe_philoEmoji} - ${cafe_philo}
-             ${jeux_en_ligneEmoji} - ${jeux_en_ligne}
+             ${jeux_de_société_en_ligneEmoji} - ${jeux_de_société_en_ligne}
              ${petanqueEmoji} - ${petanque}
              ${diapo_expoEmoji} - ${diapo_expo}
              ${shutdownEmoji} - ${shutdown} **Activité supprimée**
@@ -101,7 +101,7 @@ module.exports = async bot => {
         await msg.react(carista_streamEmoji);
         await msg.react(businessEmoji);
         await msg.react(cafe_philoEmoji);
-        await msg.react(jeux_en_ligneEmoji);
+        await msg.react(jeux_de_société_en_ligneEmoji);
         await msg.react(petanqueEmoji);
         await msg.react(diapo_expoEmoji.substring(13, diapo_expoEmoji.length - 1));
         await msg.react(world_buildingEmoji);

@@ -31,7 +31,7 @@ module.exports = {
     const carista_stream = message.guild.roles.cache.find(r => r.name === "CaritaStream");
     const business = message.guild.roles.cache.find(r => r.name === "Business");
     const cafe_philo = message.guild.roles.cache.find(r => r.name === "Café_Philo");
-    const jeux_en_ligne = message.guild.roles.cache.find(r => r.name === "Jeux_en_ligne");
+    const jeux_de_société_en_ligne = message.guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
     const petanque = message.guild.roles.cache.find(r => r.name === "Pétanque");
     const diapo_expo = message.guild.roles.cache.find(r => r.name === "Diapo_expo");
     const shutdown = message.guild.roles.cache.find(r => r.name === "Shutdown");
@@ -48,7 +48,7 @@ module.exports = {
     const modo_carista_stream = message.guild.roles.cache.find(r => r.name === "Modérateur_CaritaStream");
     const modo_business = message.guild.roles.cache.find(r => r.name === "Modérateur_Business");
     const modo_cafe_philo = message.guild.roles.cache.find(r => r.name === "Modérateur_Café_Philo");
-    const modo_jeux_en_ligne = message.guild.roles.cache.find(r => r.name === "Modérateur_Jeux_en_ligne");
+    const modo_jeux_de_société_en_ligne = message.guild.roles.cache.find(r => r.name === "Modérateur_Jeux_de_société_en_ligne");
     const modo_petanque = message.guild.roles.cache.find(r => r.name === "Modérateur_Pétanque");
     const modo_diapo_expo = message.guild.roles.cache.find(r => r.name === "Modérateur_Diapo_expo");
     const modo_shutdown = message.guild.roles.cache.find(r => r.name === "Modérateur_Shutdown");
@@ -60,7 +60,7 @@ module.exports = {
 
     const administrateur = message.guild.roles.cache.find(r => r.name === "Administrateur");
 
-    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, carista_stream.name, business.name, cafe_philo.name, jeux_en_ligne.name, petanque.name, diapo_expo.name, shutdown.name, world_building.name, orny_photo.name, velo.name, sauvons_nos_toilettes.name, art_school.name];
+    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, carista_stream.name, business.name, cafe_philo.name, jeux_de_société_en_ligne.name, petanque.name, diapo_expo.name, shutdown.name, world_building.name, orny_photo.name, velo.name, sauvons_nos_toilettes.name, art_school.name];
 
     try {
       message.guild.members.cache.forEach((member) => {
@@ -77,7 +77,7 @@ module.exports = {
           !member.roles.cache.has(modo_carista_stream.id) &&
           !member.roles.cache.has(modo_business.id) &&
           !member.roles.cache.has(modo_cafe_philo.id) &&
-          !member.roles.cache.has(modo_jeux_en_ligne.id) &&
+          !member.roles.cache.has(modo_jeux_de_société_en_ligne.id) &&
           !member.roles.cache.has(modo_petanque.id) &&
           !member.roles.cache.has(modo_diapo_expo.id) &&
           !member.roles.cache.has(modo_shutdown.id) &&
