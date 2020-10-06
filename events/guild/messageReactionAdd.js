@@ -242,7 +242,7 @@ function checkNickname(member, moderateur, administrateur, ressource){
 
   if(member.roles.cache.has(moderateur.id) && member.roles.cache.has(administrateur.id) && !member.roles.cache.has(ressource.id)) return true;
 
-  const regex = RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA))]\\s[A-Z]([^\\s]+)\\s[A-Z]+");
+  const regex = RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[A-Z]([^\\s]+)\\s[A-Z]+");
 
   if(member.nickname != null){
     const member_splited = (member.nickname).split(" ");
