@@ -29,18 +29,13 @@ module.exports = {
       const club_tech = message.guild.roles.cache.find(r => r.name === "Club_Tech");
       const esport = message.guild.roles.cache.find(r => r.name === "Esport");
       const final_club_pro = message.guild.roles.cache.find(r => r.name === "Final_Club_Pro");
-      const carista_stream = message.guild.roles.cache.find(r => r.name === "CaritaStream");
       const business = message.guild.roles.cache.find(r => r.name === "Business");
       const cafe_philo = message.guild.roles.cache.find(r => r.name === "Café_Philo");
       const jeux_de_societe_en_ligne = message.guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
       const organisation_tournois_sportif = message.guild.roles.cache.find(r => r.name === "Pétanque");
       const diapo_expo = message.guild.roles.cache.find(r => r.name === "Diapo_expo");
-      const shutdown = message.guild.roles.cache.find(r => r.name === "Shutdown");
       const world_building = message.guild.roles.cache.find(r => r.name === "world_building");
-      const orny_photo = message.guild.roles.cache.find(r => r.name === "OrnyPhoto");
       const velo = message.guild.roles.cache.find(r => r.name === "Vélo");
-      const sauvons_nos_toilettes = message.guild.roles.cache.find(r => r.name === "Sauvons_nos_toilettes");
-      const art_school = message.guild.roles.cache.find(r => r.name === "ArtSchool");
       const magic = message.guild.roles.cache.find(r => r.name === "Magic");
       const poker = message.guild.roles.cache.find(r => r.name === "Poker");
       const lecture = message.guild.roles.cache.find(r => r.name === "Lecture");
@@ -51,18 +46,13 @@ module.exports = {
       const club_techEmoji = "🧑‍💻";
       const esportEmoji = "🎮";
       const final_club_proEmoji = "<:montage_video:760882711823908926>";
-      const carista_streamEmoji = "📹";
       const businessEmoji = "💼";
       const cafe_philoEmoji = "💭";
       const jeux_de_societe_en_ligneEmoji = "🎲";
       const organisation_tournois_sportifEmoji = "🏐";
       const diapo_expoEmoji = "<:Powerpoint:760883523212017707>";
-      const shutdownEmoji = "👾";
       const world_buildingEmoji = "🌍";
-      const orny_photoEmoji = "🖼";
       const veloEmoji = "🚴‍♂️";
-      const sauvons_nos_toilettesEmoji = "🚽";
-      const art_schoolEmoji = "🎨";
       const magicEmoji = "🪄";
       const pokeremoji = "🃏";
       const lectureEmoji = "📖";
@@ -92,18 +82,13 @@ module.exports = {
              ${club_techEmoji} - ${club_tech}
              ${esportEmoji} - ${esport}
              ${final_club_proEmoji} - ${final_club_pro}
-             ${carista_streamEmoji} - ${carista_stream} **Activité supprimée**
              ${businessEmoji} - ${business}
              ${cafe_philoEmoji} - ${cafe_philo}
              ${jeux_de_societe_en_ligneEmoji} - ${jeux_de_societe_en_ligne}
              ${organisation_tournois_sportifEmoji} - ${organisation_tournois_sportif}
              ${diapo_expoEmoji} - ${diapo_expo}
-             ${shutdownEmoji} - ${shutdown} **Activité supprimée**
              ${world_buildingEmoji} - ${world_building}
-             ${orny_photoEmoji} - ${orny_photo} **Activité supprimée**
              ${veloEmoji} - ${velo}
-             ${sauvons_nos_toilettesEmoji} - ${sauvons_nos_toilettes} **Activité supprimée**
-             ${art_schoolEmoji} - ${art_school} **Activité supprimée**
              ${magicEmoji} - ${magic} **Nouvelle activité**
              ${pokeremoji} - ${poker} **Nouvelle activité**
              ${lectureEmoji} - ${lecture} **Nouvelle activité**
