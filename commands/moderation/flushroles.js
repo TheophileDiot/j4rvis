@@ -59,7 +59,7 @@ module.exports = {
     const modo_journal_intech = message.guild.roles.cache.find(r => r.name === "Modérateur_Journal_d'intech");
     const modo_batisseur = message.guild.roles.cache.find(r => r.name === "Modérateur_Batisseur");
 
-    const listRoles = [enAttenteDeRole.name, jdr.name, club_tech.name, esport.name, final_club_pro.name, business.name, cafe_philo.name, jeux_de_societe_en_ligne.name, organisation_tournois_sportif.name, diapo_expo.name, world_building.name, velo.name, magic, poker.name, lecture.name, cine_club.name, journal_intech.name, batisseur.name];
+    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, business.name, cafe_philo.name, jeux_de_societe_en_ligne.name, organisation_tournois_sportif.name, diapo_expo.name, world_building.name, velo.name, magic, poker.name, lecture.name, cine_club.name, journal_intech.name, batisseur.name];
 
     try {
       message.guild.members.cache.forEach((member) => {
