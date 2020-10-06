@@ -41,6 +41,7 @@ module.exports = {
       const lecture = message.guild.roles.cache.find(r => r.name === "Lecture");
       const cine_club = message.guild.roles.cache.find(r => r.name === "Ciné_club");
       const journal_intech = message.guild.roles.cache.find(r => r.name === "Journal_d'intech");
+      const batisseur = message.guild.roles.cache.find(r => r.name === "Batisseur");
 
       const jdrEmoji = "🐉";
       const club_techEmoji = "🧑‍💻";
@@ -58,6 +59,7 @@ module.exports = {
       const lectureEmoji = "📖";
       const cine_clubEmoji = "🎦";
       const journal_intechEmoji = "📰";
+      const batisseurEmoji = "🔨";
 
       const embed = new MessageEmbed().setTitle("Activités");
 
@@ -94,6 +96,7 @@ module.exports = {
              ${lectureEmoji} - ${lecture} **Nouvelle activité**
              ${cine_clubEmoji} - ${cine_club} **Nouvelle activité**
              ${journal_intechEmoji} - ${journal_intech} **Nouvelle activité**
+             ${batisseurEmoji} - ${batisseur} **Nouvelle activité**
           `
         )
         .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
@@ -116,6 +119,7 @@ module.exports = {
           await msg.react(lectureEmoji);
           await msg.react(cine_clubEmoji);
           await msg.react(journal_intechEmoji);
+          await msg.react(batisseurEmoji);
         }
       });
       

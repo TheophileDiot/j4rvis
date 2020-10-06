@@ -35,6 +35,7 @@ module.exports = async bot => {
       const lecture = guild.roles.cache.find(r => r.name === "Lecture");
       const cine_club = guild.roles.cache.find(r => r.name === "Ciné_club");
       const journal_intech = guild.roles.cache.find(r => r.name === "Journal_d'intech");
+      const batisseur = guild.roles.cache.find(r => r.name === "Batisseur");
 
       const jdrEmoji = "🐉";
       const club_techEmoji = "🧑‍💻";
@@ -52,6 +53,7 @@ module.exports = async bot => {
       const lectureEmoji = "📖";
       const cine_clubEmoji = "🎦";
       const journal_intechEmoji = "📰";
+      const batisseurEmoji = "🔨";
 
       const embed = new MessageEmbed().setTitle("Rôles");
 
@@ -80,6 +82,7 @@ module.exports = async bot => {
              ${lectureEmoji} - ${lecture} **Nouvelle activité**
              ${cine_clubEmoji} - ${cine_club} **Nouvelle activité**
              ${journal_intechEmoji} - ${journal_intech} **Nouvelle activité**
+             ${batisseurEmoji} - ${batisseur} **Nouvelle activité**
           `
         )
         .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
@@ -101,6 +104,7 @@ module.exports = async bot => {
         await msg.react(lectureEmoji);
         await msg.react(cine_clubEmoji);
         await msg.react(journal_intechEmoji);
+        await msg.react(batisseurEmoji);
       });
     
       // channel_change.send(`**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** \n En cours : \n- 1 campagne (7 joueurs, dernière séance, pas de nouveaux acceptés)`);

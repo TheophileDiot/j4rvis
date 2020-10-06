@@ -27,37 +27,39 @@ module.exports = {
     const club_tech = message.guild.roles.cache.find(r => r.name === "Club_Tech");
     const esport = message.guild.roles.cache.find(r => r.name === "Esport");
     const final_club_pro = message.guild.roles.cache.find(r => r.name === "Final_Club_Pro");
-    const carista_stream = message.guild.roles.cache.find(r => r.name === "CaritaStream");
     const business = message.guild.roles.cache.find(r => r.name === "Business");
     const cafe_philo = message.guild.roles.cache.find(r => r.name === "Café_Philo");
     const jeux_de_societe_en_ligne = message.guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
-    const petanque = message.guild.roles.cache.find(r => r.name === "Pétanque");
+    const organisation_tournois_sportif = message.guild.roles.cache.find(r => r.name === "Organisation_tournois_sportif");
     const diapo_expo = message.guild.roles.cache.find(r => r.name === "Diapo_expo");
-    const shutdown = message.guild.roles.cache.find(r => r.name === "Shutdown");
     const world_building = message.guild.roles.cache.find(r => r.name === "world_building");
-    const orny_photo = message.guild.roles.cache.find(r => r.name === "OrnyPhoto");
     const velo = message.guild.roles.cache.find(r => r.name === "Vélo");
-    const sauvons_nos_toilettes = message.guild.roles.cache.find(r => r.name === "Sauvons_nos_toilettes");
-    const art_school = message.guild.roles.cache.find(r => r.name === "ArtSchool");
+    const magic = message.guild.roles.cache.find(r => r.name === "Magic");
+    const poker = message.guild.roles.cache.find(r => r.name === "Poker");
+    const lecture = message.guild.roles.cache.find(r => r.name === "Lecture");
+    const cine_club = message.guild.roles.cache.find(r => r.name === "Ciné_club");
+    const journal_intech = message.guild.roles.cache.find(r => r.name === "Journal_d'intech");
+    const batisseur = message.guild.roles.cache.find(r => r.name === "Batisseur");
 
     const modo_jdr = message.guild.roles.cache.find(r => r.name === "Modérateur_JDR");
     const modo_club_tech = message.guild.roles.cache.find(r => r.name === "Modérateur_Club_Tech");
     const modo_esport = message.guild.roles.cache.find(r => r.name === "Modérateur_Esport");
     const modo_final_club_pro = message.guild.roles.cache.find(r => r.name === "Modérateur_Final_Club_Pro");
-    const modo_carista_stream = message.guild.roles.cache.find(r => r.name === "Modérateur_CaritaStream");
     const modo_business = message.guild.roles.cache.find(r => r.name === "Modérateur_Business");
     const modo_cafe_philo = message.guild.roles.cache.find(r => r.name === "Modérateur_Café_Philo");
     const modo_jeux_de_societe_en_ligne = message.guild.roles.cache.find(r => r.name === "Modérateur_Jeux_de_société_en_ligne");
-    const modo_petanque = message.guild.roles.cache.find(r => r.name === "Modérateur_Pétanque");
+    const modo_organisation_tournois_sportif = message.guild.roles.cache.find(r => r.name === "Modérateur_Organisation_tournois_sportif");
     const modo_diapo_expo = message.guild.roles.cache.find(r => r.name === "Modérateur_Diapo_expo");
-    const modo_shutdown = message.guild.roles.cache.find(r => r.name === "Modérateur_Shutdown");
     const modo_world_building = message.guild.roles.cache.find(r => r.name === "Modérateur_world_building");
-    const modo_orny_photo = message.guild.roles.cache.find(r => r.name === "Modérateur_OrnyPhoto");
     const modo_velo = message.guild.roles.cache.find(r => r.name === "Modérateur_Vélo");
-    const modo_sauvons_nos_toilettes = message.guild.roles.cache.find(r => r.name === "Modérateur_Sauvons_nos_toilettes");
-    const modo_art_school = message.guild.roles.cache.find(r => r.name === "Modérateur_ArtSchool");
+    const modo_magic = message.guild.roles.cache.find(r => r.name === "Modérateur_Magic");
+    const modo_poker = message.guild.roles.cache.find(r => r.name === "Modérateur_Poker");
+    const modo_lecture = message.guild.roles.cache.find(r => r.name === "Modérateur_Lecture");
+    const modo_cine_club = message.guild.roles.cache.find(r => r.name === "Modérateur_Ciné_club");
+    const modo_journal_intech = message.guild.roles.cache.find(r => r.name === "Modérateur_Journal_d'intech");
+    const modo_batisseur = message.guild.roles.cache.find(r => r.name === "Modérateur_Batisseur");
 
-    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, carista_stream.name, business.name, cafe_philo.name, jeux_de_societe_en_ligne.name, petanque.name, diapo_expo.name, shutdown.name, world_building.name, orny_photo.name, velo.name, sauvons_nos_toilettes.name, art_school.name];
+    const listRoles = [enAttenteDeRole.name, jdr.name, club_tech.name, esport.name, final_club_pro.name, business.name, cafe_philo.name, jeux_de_societe_en_ligne.name, organisation_tournois_sportif.name, diapo_expo.name, world_building.name, velo.name, magic, poker.name, lecture.name, cine_club.name, journal_intech.name, batisseur.name];
 
     try {
       message.guild.members.cache.forEach((member) => {
@@ -69,19 +71,19 @@ module.exports = {
           !member.roles.cache.has(modo_club_tech.id) &&
           !member.roles.cache.has(modo_esport.id) &&
           !member.roles.cache.has(modo_final_club_pro.id) &&
-          !member.roles.cache.has(modo_carista_stream.id) &&
           !member.roles.cache.has(modo_business.id) &&
           !member.roles.cache.has(modo_cafe_philo.id) &&
           !member.roles.cache.has(modo_jeux_de_societe_en_ligne.id) &&
-          !member.roles.cache.has(modo_petanque.id) &&
+          !member.roles.cache.has(modo_organisation_tournois_sportif.id) &&
           !member.roles.cache.has(modo_diapo_expo.id) &&
-          !member.roles.cache.has(modo_shutdown.id) &&
           !member.roles.cache.has(modo_world_building.id) &&
-          !member.roles.cache.has(modo_orny_photo.id) &&
           !member.roles.cache.has(modo_velo.id) &&
-          !member.roles.cache.has(modo_diapo_expo.id) &&
-          !member.roles.cache.has(modo_sauvons_nos_toilettes.id)  &&
-          !member.roles.cache.has(modo_art_school.id)
+          !member.roles.cache.has(modo_magic.id) &&
+          !member.roles.cache.has(modo_poker.id) &&
+          !member.roles.cache.has(modo_lecture.id) &&
+          !member.roles.cache.has(modo_cine_club.id) &&
+          !member.roles.cache.has(modo_journal_intech.id) &&
+          !member.roles.cache.has(modo_batisseur.id)
         ) {
 
           member.roles.cache.forEach((role) => {
