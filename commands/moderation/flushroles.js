@@ -40,6 +40,7 @@ module.exports = {
     const cine_club = message.guild.roles.cache.find(r => r.name === "Ciné_club");
     const journal_intech = message.guild.roles.cache.find(r => r.name === "Journal_d'intech");
     const batisseur = message.guild.roles.cache.find(r => r.name === "Batisseur");
+    const bde = message.guild.roles.cache.find(r => r.name === "BDE");
 
     const modo_jdr = message.guild.roles.cache.find(r => r.name === "Modérateur_JDR");
     const modo_club_tech = message.guild.roles.cache.find(r => r.name === "Modérateur_Club_Tech");
@@ -58,8 +59,9 @@ module.exports = {
     const modo_cine_club = message.guild.roles.cache.find(r => r.name === "Modérateur_Ciné_club");
     const modo_journal_intech = message.guild.roles.cache.find(r => r.name === "Modérateur_Journal_d'intech");
     const modo_batisseur = message.guild.roles.cache.find(r => r.name === "Modérateur_Batisseur");
+    const modo_bde = message.guild.roles.cache.find(r => r.name === "Modérateur_BDE");
 
-    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, business.name, cafe_philo.name, jeux_de_societe_en_ligne.name, organisation_tournois_sportif.name, diapo_expo.name, world_building.name, velo.name, magic, poker.name, lecture.name, cine_club.name, journal_intech.name, batisseur.name];
+    const listRoles = [jdr.name, club_tech.name, esport.name, final_club_pro.name, business.name, cafe_philo.name, jeux_de_societe_en_ligne.name, organisation_tournois_sportif.name, diapo_expo.name, world_building.name, velo.name, magic, poker.name, lecture.name, cine_club.name, journal_intech.name, batisseur.name, bde.name];
 
     try {
       message.guild.members.cache.forEach((member) => {
@@ -83,7 +85,8 @@ module.exports = {
           !member.roles.cache.has(modo_lecture.id) &&
           !member.roles.cache.has(modo_cine_club.id) &&
           !member.roles.cache.has(modo_journal_intech.id) &&
-          !member.roles.cache.has(modo_batisseur.id)
+          !member.roles.cache.has(modo_batisseur.id) &&
+          !member.roles.cache.has(modo_bde.id)
         ) {
 
           member.roles.cache.forEach((role) => {

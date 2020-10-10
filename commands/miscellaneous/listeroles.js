@@ -42,6 +42,7 @@ module.exports = {
       const cine_club = message.guild.roles.cache.find(r => r.name === "Ciné_club");
       const journal_intech = message.guild.roles.cache.find(r => r.name === "Journal_d'intech");
       const batisseur = message.guild.roles.cache.find(r => r.name === "Batisseur");
+      const bde = message.guild.roles.cache.find(r => r.name === "BDE");
 
       const jdrEmoji = "🐉";
       const club_techEmoji = "🧑‍💻";
@@ -60,6 +61,7 @@ module.exports = {
       const cine_clubEmoji = "🎦";
       const journal_intechEmoji = "📰";
       const batisseurEmoji = "🔨";
+      const bdeEmoji = "<:intech:764417273771196436>"
 
       const embed = new MessageEmbed().setTitle("Activités");
 
@@ -91,12 +93,13 @@ module.exports = {
              ${diapo_expoEmoji} - ${diapo_expo}
              ${world_buildingEmoji} - ${world_building}
              ${veloEmoji} - ${velo}
-             ${magicEmoji} - ${magic} **Nouvelle activité**
-             ${pokeremoji} - ${poker} **Nouvelle activité**
-             ${lectureEmoji} - ${lecture} **Nouvelle activité**
-             ${cine_clubEmoji} - ${cine_club} **Nouvelle activité**
-             ${journal_intechEmoji} - ${journal_intech} **Nouvelle activité**
-             ${batisseurEmoji} - ${batisseur} **Nouvelle activité**
+             ${magicEmoji} - ${magic}
+             ${pokeremoji} - ${poker}
+             ${lectureEmoji} - ${lecture}
+             ${cine_clubEmoji} - ${cine_club}
+             ${journal_intechEmoji} - ${journal_intech}
+             ${batisseurEmoji} - ${batisseur}
+             ${bdeEmoji} - ${bde}
           `
         )
         .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
@@ -120,6 +123,7 @@ module.exports = {
           await msg.react(cine_clubEmoji);
           await msg.react(journal_intechEmoji);
           await msg.react(batisseurEmoji);
+          await msg.react(bdeEmoji.substring(9, bdeEmoji.length - 1));
         }
       });
       
