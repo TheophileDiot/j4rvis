@@ -247,22 +247,20 @@ function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole
 
 function checkNickname(member, moderateur, administrateur, ressource){
 
-  if(member.roles.cache.has(moderateur.id) && member.roles.cache.has(administrateur.id) && !member.roles.cache.has(ressource.id)) return true;
+  if(member.roles.cache.has(moderateur.id) || member.roles.cache.has(administrateur.id) || !member.roles.cache.has(ressource.id)) return true;
 
-  const regex = new RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[A-Z ,.'-]+([^\\s]+)\\s[A-Z ,.'-]+", "g")
+  const regex = new RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$", "i")
 
   if(member.nickname != null){
-    const member_splited = (member.nickname).split(" ");
 
-    if(member_splited[2] !== undefined && member_splited[4] === undefined){
-      if(!regex.test(member.nickname)){
-        return false;
-      }
-    } else {
+    if(!regex.test(member.nickname)){
       return false;
     }
+
   } else {
-    return false;
+    if(!regex.test(member.displayName)){
+      return false;
+    }
   }
 
   return true;

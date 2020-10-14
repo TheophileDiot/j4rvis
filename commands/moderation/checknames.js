@@ -21,27 +21,23 @@ module.exports = {
 
         try {
 
-            const regex = new RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[A-Z ,.'-]+([^\\s]+)\\s[A-Z ,.'-]+", "g")
+            const regex = new RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$", "i")
 
             let arr_non_res = [];
 
             message.guild.members.cache.forEach((member) => {
                 if(!member.user.bot){
-                    if(!member.roles.cache.has(moderateur.id) && !member.roles.cache.has(administrateur.id) && !member.roles.cache.has(ressource.id)){
+                    if(!member.roles.cache.has(moderateur.id) || !member.roles.cache.has(administrateur.id) || !member.roles.cache.has(ressource.id)){
                         if(member.nickname != null){
 
-                            const member_splited = (member.nickname).split(" ");
-
-                            if(member_splited[2] !== undefined && member_splited[4] === undefined){
-                                if(!regex.test(member.nickname)){
-                                    arr_non_res.push(member);
-                                }
-                            } else {
+                            if(!regex.test(member.nickname)){
                                 arr_non_res.push(member);
                             }
         
                         } else {
-                            arr_non_res.push(member);
+                            if(!regex.test(member.displayName)){
+                                arr_non_res.push(member);
+                            }
                         }
                     }
                     
