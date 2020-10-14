@@ -27,7 +27,7 @@ module.exports = {
 
             message.guild.members.cache.forEach((member) => {
                 if(!member.user.bot){
-                    if(!member.roles.cache.has(moderateur.id) || !member.roles.cache.has(administrateur.id) || !member.roles.cache.has(ressource.id)){
+                    if(!member.roles.cache.has(moderateur.id) && !member.roles.cache.has(administrateur.id) && !member.roles.cache.has(ressource.id)){
                         if(member.nickname != null){
 
                             if(!regex.test(member.nickname)){
@@ -40,7 +40,6 @@ module.exports = {
                             }
                         }
                     }
-                    
                 }
             });
 

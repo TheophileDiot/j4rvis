@@ -247,7 +247,7 @@ function checkRoles(member, message, administrateur, moderateur, enAttenteDeRole
 
 function checkNickname(member, moderateur, administrateur, ressource){
 
-  if(member.roles.cache.has(moderateur.id) || member.roles.cache.has(administrateur.id) || !member.roles.cache.has(ressource.id)) return true;
+  if(member.roles.cache.has(moderateur.id) && member.roles.cache.has(administrateur.id) && !member.roles.cache.has(ressource.id)) return true;
 
   const regex = new RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$", "i")
 
