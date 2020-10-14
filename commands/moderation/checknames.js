@@ -21,7 +21,7 @@ module.exports = {
 
         try {
 
-            const regex = RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))[]]\s[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+");
+            const regex = new RegExp("[[]((AG)|(BE)|(DA)|(MO)|(NI)|(PA)|(SO))]\\s[A-Z ,.'-]+([^\\s]+)\\s[A-Z ,.'-]+", "g")
 
             let arr_non_res = [];
 
