@@ -41,7 +41,7 @@ module.exports = {
     const channel_final_club_pro = message.guild.channels.cache.get('760825189839011861');
     const channel_business = message.guild.channels.cache.get('760823976988639242');
     const channel_philo = message.guild.channels.cache.get('760824999618674718');
-    const channel_jeux_société = message.guild.channels.cache.get('760824400349495306');
+    const channel_jeux_societe = message.guild.channels.cache.get('760824400349495306');
     const channel_diapo_expo = message.guild.channels.cache.get('760822606483161167');
     const channel_world_building = message.guild.channels.cache.get('760824261467570216');
     const channel_velo = message.guild.channels.cache.get('760825324174311424');
@@ -53,7 +53,7 @@ module.exports = {
     const channel_batisseur = message.guild.channels.cache.get('763000785981538324');
     const channel_bde = message.guild.channels.cache.get('763408049741496340');
 
-    list_channels = [channel_jdr, channel_tech, channel_esport, channel_final_club_pro, channel_business, channel_philo, channel_jeux_société, channel_diapo_expo, channel_world_building, channel_velo, channel_magic, channel_poker, channel_lecture, channel_cine_club, channel_journal_intech, channel_batisseur, channel_bde]
+    list_channels = [channel_jdr, channel_tech, channel_esport, channel_final_club_pro, channel_business, channel_philo, channel_jeux_societe, channel_diapo_expo, channel_world_building, channel_velo, channel_magic, channel_poker, channel_lecture, channel_cine_club, channel_journal_intech, channel_batisseur, channel_bde]
 
     try {
 
