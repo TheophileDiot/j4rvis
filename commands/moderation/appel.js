@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: "appel",
     description:
-      "Permet de faire l'appel, l'appel se termine au bout de 20 minutes et affiche le pseudo des personnes ayant ✅ réagit au message",
+      "Permet de faire l'appel, l'appel se termine au bout de 20 minutes et affiche le pseudo des personnes n'ayant pas réagit ✅ au message",
     usage: "",
     category: "moderation",
     accessableby: "Modérateur",
@@ -124,10 +124,10 @@ module.exports = {
               } else {
                 away_arr.push(membre.nickname);
               }
-              membre.roles.cache.forEach((role) => {
-                membre.roles.remove(role);
-              });
-              membre.roles.add(absent)
+              // membre.roles.cache.forEach((role) => {
+              //   membre.roles.remove(role);
+              // });
+              // membre.roles.add(absent)
             }
           });
 
