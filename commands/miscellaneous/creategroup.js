@@ -84,7 +84,7 @@ module.exports = {
           let y = 0;
 
           members.forEach((membre) => {
-            if(membre !== undefined && (!excluded_members.includes(membre) || !group_masters.includes(membre))){
+            if(membre !== undefined && (!excluded_members.includes(membre) && !group_masters.includes(membre))){
               if(membre.nickname !== undefined){
                 membre = membre.nickname
                 list[y] += "".concat(membre.substring(membre.indexOf("]")+1), ", ");
