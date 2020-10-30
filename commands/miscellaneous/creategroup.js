@@ -33,7 +33,7 @@ module.exports = {
           group_masters[i] = message.guild.members.cache.get(group_masters[i].substring(3, group_masters[i].indexOf(">")))
           if (!group_masters[i].roles.cache.has(role.id)) {
             not_from_role = true
-            index_not_from_role = i + 1;
+            index_not_from_role = i;
           }
         }
       }
@@ -59,7 +59,7 @@ module.exports = {
             msg.delete({ timeout: 2500 });
           });
       } else if (not_from_role){
-        message.channel.send(`Le maître de groupe numéro ${index_not_from_role} ne possède pas le rôle ${role.name}`)
+        message.channel.send(`Le maître de groupe ${group_masters[index_not_from_role].displayName} ne possède pas le rôle ${role.name}`)
             .then(msg => {
               msg.delete({ timeout: 2500 });
             });
