@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: "creategroup",
     description: "Créé des groupes pour le rôle de votre choix automatiquement",
-    usage: "(@rôle) (nombre de groupes)",
+    usage: "(@rôle) (nombre de groupes) (membres exclus séparés par un espace)",
     category: "miscellaneous",
     accessableby: "Membres",
     aliases: ["group", "groupe", "groupcreate", "creategroupe", "groupecreate"]
@@ -13,7 +13,7 @@ module.exports = {
 
   run: async (bot, message, args) => {
     
-    /*const member = message.member;
+    const member = message.member;
     
     try {
 
@@ -21,7 +21,7 @@ module.exports = {
 
       const nbrgroups = args.slice(1)[0];
 
-      const excluded_members = args.slice(1)[1];
+      const excluded_members = args.slice(2);
 
       if(role == null){
         message.channel.send("Veuillez préciser un rôle !")
@@ -64,7 +64,7 @@ module.exports = {
           let y = 0;
 
           for (let i = 0; i < members.length; i++) {
-            if(members[i] !== undefined){
+            if(members[i] !== undefined && !excluded_members.includes(members[i])){
               if(members[i].nickname !== null){
                 members[i] = members[i].nickname
                 list[y] += "".concat(members[i].substring(members[i].indexOf("]")+1), ", ");
@@ -107,7 +107,7 @@ module.exports = {
       console.log(e);
     } finally {
       message.delete();
-    }*/
+    }
   }
 };
 
