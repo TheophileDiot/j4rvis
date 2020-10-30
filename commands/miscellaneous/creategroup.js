@@ -13,13 +13,15 @@ module.exports = {
 
   run: async (bot, message, args) => {
     
-    const member = message.member;
+    /*const member = message.member;
     
     try {
 
-      const role = message.mentions.roles.first();
+      const role = message.mentions.roles.last();
 
-      const nbrgroups = args.slice(1).join(" ");
+      const nbrgroups = args.slice(1)[0];
+
+      const excluded_members = args.slice(1)[1];
 
       if(role == null){
         message.channel.send("Veuillez préciser un rôle !")
@@ -105,7 +107,7 @@ module.exports = {
       console.log(e);
     } finally {
       message.delete();
-    }
+    }*/
   }
 };
 
