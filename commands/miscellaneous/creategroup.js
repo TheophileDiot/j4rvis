@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: "creategroup",
     description: "Créé des groupes pour le rôle de votre choix automatiquement",
-    usage: "(@rôle) (nombre de groupes) (membres exclus séparés par un espace)",
+    usage: "(@rôle) (nombre de groupes) (chefs de groupes séparé par un espace, il doit y avoir autant de chef que de groupes) (membres exclus séparés par un espace)",
     category: "miscellaneous",
     accessableby: "Membres",
     aliases: ["group", "groupe", "groupcreate", "creategroupe", "groupecreate"]
@@ -21,7 +21,22 @@ module.exports = {
 
       const nbrgroups = args.slice(1)[0];
 
-      const excluded_members = args.slice(2);
+      const group_masters = args.slice(2, 2 + nbrgroups);
+
+      const excluded_members = args.slice(-nbrgroups + 1);
+
+      let not_from_role = false
+      let index_not_from_role = 0;
+
+      if(group_masters.length > 1) {
+        for (let i = 0; i < group_masters.length; i++) {
+          group_masters[i] = message.guild.members.cache.get(group_masters[i].substring(3, group_masters[i].indexOf(">")))
+          if (!group_masters[i].member.roles.cache.has(role.id)) {
+            not_from_role = true
+            index_not_from_role = i + 1;
+          }
+        }
+      }
 
       if(role == null){
         message.channel.send("Veuillez préciser un rôle !")
@@ -43,6 +58,11 @@ module.exports = {
           .then(msg => {
             msg.delete({ timeout: 2500 });
           });
+      } else if (not_from_role){
+        message.channel.send(`Le maître de groupe numéro ${index_not_from_role} ne possède pas le rôle ${role.name}`)
+            .then(msg => {
+              msg.delete({ timeout: 2500 });
+            });
       } else {
         let members = message.guild.roles.cache.get(role.id).members.map(m=>m);
 
@@ -63,13 +83,13 @@ module.exports = {
           var list = [""];
           let y = 0;
 
-          for (let i = 0; i < members.length; i++) {
-            if(members[i] !== undefined && !excluded_members.includes(members[i])){
-              if(members[i].nickname !== null){
-                members[i] = members[i].nickname
-                list[y] += "".concat(members[i].substring(members[i].indexOf("]")+1), ", ");
+          members.forEach((membre) => {
+            if(membre !== undefined && (!excluded_members.includes(membre) || !group_masters.includes(membre))){
+              if(membre.nickname !== undefined){
+                membre = membre.nickname
+                list[y] += "".concat(membre.substring(membre.indexOf("]")+1), ", ");
               } else {
-                list[y] += "".concat(members[i].displayName);
+                list[y] += "".concat(membre.displayName);
               }
               if(y === nbrgroups - 1){
                 y = 0;
@@ -77,12 +97,32 @@ module.exports = {
                 y += 1;
               }
             }
+          })
+
+          if(group_masters.length > 1){
+            if(group_masters[0].nickname !== undefined){
+              group_masters[0] = group_masters[0].nickname
+              list[0] = "".concat(group_masters[0].substring(group_masters[0].indexOf("]")+1), ", ") + list[0];
+            } else {
+              list[0] = "".concat(group_masters[0].displayName) + list[0];
+            }
           }
 
           list[0] = list[0].substring(0, list[0].length - 2);
 
           for (let i = 1; i < nbrgroups; i++) {
-            list[i] = list[i].substring(9, list[i].length - 2);
+            if(group_masters.length > 1){
+              if(group_masters[i].nickname !== undefined){
+                group_masters[i] = group_masters[i].nickname
+                list[i] = "".concat(group_masters[i].substring(group_masters[i].indexOf("]")+1), ", ") + list[i].substring(9, list[i].length - 2);
+              } else {
+                list[i] = "".concat(group_masters[i].displayName) + list[i].substring(9, list[i].length - 2);
+              }
+            }
+
+            if(group_masters.length < 1){
+              list[i] = list[i].substring(9, list[i].length - 2);
+            }
           }
 
           let Embed = new MessageEmbed()
