@@ -31,7 +31,7 @@ module.exports = {
       if(group_masters.length > 1) {
         for (let i = 0; i < group_masters.length; i++) {
           group_masters[i] = message.guild.members.cache.get(group_masters[i].substring(3, group_masters[i].indexOf(">")))
-          if (!group_masters[i].member.roles.cache.has(role.id)) {
+          if (!group_masters[i].roles.cache.has(role.id)) {
             not_from_role = true
             index_not_from_role = i + 1;
           }
