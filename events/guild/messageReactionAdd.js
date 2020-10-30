@@ -7,6 +7,8 @@ module.exports = async (bot, messageReaction, user) => {
 
     if (member.user.bot) return;
 
+    if (message.channel.id !== channel_change.id) return;
+
     const enAttenteDeRole = message.guild.roles.cache.find(r => r.name === "En_attente_de_rôle");
 
     const ressource = message.guild.roles.cache.find(r => r.name === "Ressource");
@@ -95,7 +97,7 @@ module.exports = async (bot, messageReaction, user) => {
 
     if (
       ["🐉", "🧑‍💻", "🎮", "montage_video", "💼", "💭", "🎲", "Powerpoint", "🌍", "🚴‍♂️", "🪄", "🃏", "📖", "🎦", "📰", "🔨", "intech"].includes(
-        messageReaction.emoji.name) && message.channel.id === channel_change.id && !member.roles.cache.has(ancien.id)
+        messageReaction.emoji.name) && !member.roles.cache.has(ancien.id)
     ) {
       switch (messageReaction.emoji.name) {
         case "🐉":
