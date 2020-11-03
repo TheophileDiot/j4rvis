@@ -25,8 +25,7 @@ module.exports = async bot => {
       const final_club_pro = guild.roles.cache.find(r => r.name === "Final_Club_Pro");
       const business = guild.roles.cache.find(r => r.name === "Business");
       const cafe_philo = guild.roles.cache.find(r => r.name === "Café_Philo");
-      // const jeux_de_societe_en_ligne = guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
-      const organisation_tournois_sportif = guild.roles.cache.find(r => r.name === "Organisation_tournois_sportif");
+      const jeux_de_societe_en_ligne = guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
       const diapo_expo = guild.roles.cache.find(r => r.name === "Diapo_expo");
       const world_building = guild.roles.cache.find(r => r.name === "world_building");
       const velo = guild.roles.cache.find(r => r.name === "Vélo");
@@ -45,7 +44,6 @@ module.exports = async bot => {
       const businessEmoji = "💼";
       const cafe_philoEmoji = "💭";
       const jeux_de_societe_en_ligneEmoji = "🎲";
-      const organisation_tournois_sportifEmoji = "🏐";
       const diapo_expoEmoji = "<:Powerpoint:760883523212017707>";
       const world_buildingEmoji = "🌍";
       const veloEmoji = "🚴‍♂️";
