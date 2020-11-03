@@ -32,7 +32,6 @@ module.exports = {
       const business = message.guild.roles.cache.find(r => r.name === "Business");
       const cafe_philo = message.guild.roles.cache.find(r => r.name === "Café_Philo");
       const jeux_de_societe_en_ligne = message.guild.roles.cache.find(r => r.name === "Jeux_de_société_en_ligne");
-      const organisation_tournois_sportif = message.guild.roles.cache.find(r => r.name === "Pétanque");
       const diapo_expo = message.guild.roles.cache.find(r => r.name === "Diapo_expo");
       const world_building = message.guild.roles.cache.find(r => r.name === "world_building");
       const velo = message.guild.roles.cache.find(r => r.name === "Vélo");
@@ -51,7 +50,6 @@ module.exports = {
       const businessEmoji = "💼";
       const cafe_philoEmoji = "💭";
       const jeux_de_societe_en_ligneEmoji = "🎲";
-      const organisation_tournois_sportifEmoji = "🏐";
       const diapo_expoEmoji = "<:Powerpoint:760883523212017707>";
       const world_buildingEmoji = "🌍";
       const veloEmoji = "🚴‍♂️";
@@ -89,7 +87,6 @@ module.exports = {
              ${businessEmoji} - ${business}
              ${cafe_philoEmoji} - ${cafe_philo}
              ${jeux_de_societe_en_ligneEmoji} - ${jeux_de_societe_en_ligne}
-             ${organisation_tournois_sportifEmoji} - ${organisation_tournois_sportif}
              ${diapo_expoEmoji} - ${diapo_expo}
              ${world_buildingEmoji} - ${world_building}
              ${veloEmoji} - ${velo}
@@ -113,7 +110,6 @@ module.exports = {
           await msg.react(businessEmoji);
           await msg.react(cafe_philoEmoji);
           await msg.react(jeux_de_societe_en_ligneEmoji);
-          await msg.react(organisation_tournois_sportifEmoji);
           await msg.react(diapo_expoEmoji.substring(13, diapo_expoEmoji.length - 1));
           await msg.react(world_buildingEmoji);
           await msg.react(veloEmoji);
