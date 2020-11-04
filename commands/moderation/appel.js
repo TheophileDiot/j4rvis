@@ -70,16 +70,12 @@ module.exports = {
       .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
       .setThumbnail('attachment://Logo_INTECH_Activites_a_la_carte.png')
       .setAuthor(`${message.guild.name} Info`, 'attachment://Logo_INTECH_Activites_a_la_carte.png')
-      .setDescription("Cliquez sur la réaction si présente pour montrer que vous êtes présent.\n\n"
-                      + "**Si vous n'ajoutez pas une réaction à temps, vous serrez mis absent pour la moitié du créneau**")
+      .setDescription("Cliquez sur la réaction si présente pour montrer que vous êtes présent.\n\n")
+                      //+ "**Si vous n'ajoutez pas une réaction à temps, vous serrez mis absent pour la moitié du créneau**")
       .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
-      // mise auto présent à retirer
-      const auto_present = true;
-      presents_arr.push("[AG] Théophile DIOT");
-
       message.channel.send("@everyone Appel !").then(msg => {
-          msg.delete({ timeout: 900000 });
+          msg.delete({ timeout: 300000 });
         });
 
       list_channels.forEach((channel) => {
@@ -95,12 +91,10 @@ module.exports = {
 
             const membre = message.guild.members.cache.get(user.id);
 
-            if(membre.nickname !== "[AG] Théophile DIOT" && auto_present){
-              if(membre.nickname === null || membre.nickname === undefined){
-                presents_arr.push(membre.user.name);
-              } else {
-                presents_arr.push(membre.nickname);
-              }
+            if(membre.nickname === null || membre.nickname === undefined){
+              presents_arr.push(membre.user.name);
+            } else {
+              presents_arr.push(membre.nickname);
             }
 
           }
@@ -117,8 +111,7 @@ module.exports = {
           presents_arr = presents_arr.sort();
 
           message.guild.members.cache.forEach((membre) => {
-
-            if(!presents_arr.includes(membre.nickname) && !membre.user.bot || membre.roles.cache.has(ancien.id) || membre.roles.cache.has(ressource.id) || membre.roles.cache.has(moderateur.id) || membre.roles.cache.has(admin.id)){
+            if(!presents_arr.includes(membre.nickname) && !membre.user.bot && !membre.roles.cache.has(ancien.id) && !membre.roles.cache.has(ressource.id) && !membre.roles.cache.has(moderateur.id) && !membre.roles.cache.has(admin.id)){
               if(membre.nickname === null || membre.nickname === undefined){
                 away_arr.push(membre.user.tag);
               } else {
@@ -147,10 +140,10 @@ module.exports = {
           if(away_str2 !== ""){
             message.channel.send(`${away_str2}`);
           }
-        }, 900000);
+        }, 300000);
       });
 
-      // 900000
+      // 300000 / 5 minutes
 
       message.delete();
 
