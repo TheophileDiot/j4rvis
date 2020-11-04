@@ -79,7 +79,7 @@ module.exports = {
         });
 
       list_channels.forEach((channel) => {
-        channel.send("Appel lancé !");
+        channel.send(`Appel lancé ! => ${channel_appel}`);
       })
 
       message.channel.send({ embed: sEmbed }).then(async msg => {
