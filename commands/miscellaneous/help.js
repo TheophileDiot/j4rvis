@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { prefix } = require("../../botconfig.json");
 const { readdirSync } = require("fs");
 const { stripIndents } = require("common-tags");
-const { yellow_j4rvis } = require("../../colours.json");
+const { green_j4rvis } = require("../../colours.json");
 
 module.exports = {
   config: {
@@ -18,7 +18,7 @@ module.exports = {
     message.delete();
 
     const embed = new MessageEmbed()
-      .setColor(yellow_j4rvis)
+      .setColor(green_j4rvis)
       .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
       .setThumbnail('attachment://Logo_INTECH_Activites_a_la_carte.png')
       .setAuthor(`${message.guild.name}`, 'attachment://Logo_INTECH_Activites_a_la_carte.png');

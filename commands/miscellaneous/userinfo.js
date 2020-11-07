@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { yellow_j4rvis } = require("../../colours.json");
+const { green_j4rvis } = require("../../colours.json");
 const moment = require("moment");
 
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
     const member = message.mentions.members.first() || message.member;
     
     let uEmbed = new MessageEmbed()
-      .setColor(yellow_j4rvis)
+      .setColor(green_j4rvis)
       .setTitle(`Informations de l'utilisateur ${member.user.username}`)
       .attachFiles(['./Photos/Logo_j4rvis.png'])
       .setThumbnail("https://cdn.discordapp.com/avatars/" + member.user.id + "/" + member.user.avatar + ".png")

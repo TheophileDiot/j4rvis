@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { yellow_j4rvis } = require("../../colours.json");
+const { green_j4rvis } = require("../../colours.json");
 
 module.exports = {
   config: {
@@ -58,7 +58,7 @@ module.exports = {
       const absent = message.guild.roles.cache.find(r => r.name === "Absent");
       
       let sEmbed = new MessageEmbed()
-        .setColor(yellow_j4rvis)
+        .setColor(green_j4rvis)
         .setTitle("Infos Activités")
         .attachFiles(['./Photos/Logo_j4rvis.png'])
         .attachFiles(['./Photos/Logo_INTECH_Activites_a_la_carte.png'])
