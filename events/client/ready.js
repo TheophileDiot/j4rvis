@@ -6,7 +6,7 @@ module.exports = async bot => {
   
   console.log(`${bot.user.username} is online`);
   await bot.user.setActivity("Sniping trollers", {type: "WATCHING"});
-    
+  
   try {
     
       const channel_change = bot.channels.cache.get("700683266373582878");
@@ -19,6 +19,7 @@ module.exports = async bot => {
       
       const guild = bot.guilds.cache.get("697723523472424970");
     
+      const bde = guild.roles.cache.find(r => r.name === "BDE");
       const jdr = guild.roles.cache.find(r => r.name === "JDR");
       const club_tech = guild.roles.cache.find(r => r.name === "Club_Tech");
       const esport = guild.roles.cache.find(r => r.name === "Esport");
@@ -35,8 +36,8 @@ module.exports = async bot => {
       const cine_club = guild.roles.cache.find(r => r.name === "Ciné_club");
       const journal_intech = guild.roles.cache.find(r => r.name === "Journal_d'intech");
       const batisseur = guild.roles.cache.find(r => r.name === "Batisseur");
-      const bde = guild.roles.cache.find(r => r.name === "BDE");
 
+      const bdeEmoji = "<:intech:764417273771196436>"
       const jdrEmoji = "🐉";
       const club_techEmoji = "🧑‍💻";
       const esportEmoji = "🎮";
@@ -53,7 +54,6 @@ module.exports = async bot => {
       const cine_clubEmoji = "🎦";
       const journal_intechEmoji = "📰";
       const batisseurEmoji = "🔨";
-      const bdeEmoji = "<:intech:764417273771196436>"
 
       const embed = new MessageEmbed().setTitle("Rôles");
 
@@ -66,6 +66,7 @@ module.exports = async bot => {
         .addField(
           "Les rôles disponibles:",
           `
+             ${bdeEmoji} - ${bde}
              ${jdrEmoji} - ${jdr}
              ${club_techEmoji} - ${club_tech}
              ${esportEmoji} - ${esport}
@@ -82,12 +83,12 @@ module.exports = async bot => {
              ${cine_clubEmoji} - ${cine_club}
              ${journal_intechEmoji} - ${journal_intech}
              ${batisseurEmoji} - ${batisseur}
-             ${bdeEmoji} - ${bde}
           `
         )
         .setFooter("J4RVIS", 'attachment://Logo_j4rvis.png');
 
       channel_change.send(embed).then(async msg => {
+        await msg.react(bdeEmoji.substring(9, bdeEmoji.length - 1));
         await msg.react(jdrEmoji);
         await msg.react(club_techEmoji);
         await msg.react(esportEmoji);
@@ -104,10 +105,7 @@ module.exports = async bot => {
         await msg.react(cine_clubEmoji);
         await msg.react(journal_intechEmoji);
         await msg.react(batisseurEmoji);
-        await msg.react(bdeEmoji.substring(9, bdeEmoji.length - 1));
       });
-    
-      // channel_change.send(`**MESSAGE DE LA SEMAINE CONCERNANT L'ACTIVITE JDR :** \n En cours : \n- 1 campagne (7 joueurs, dernière séance, pas de nouveaux acceptés)`);
     } catch (e) {
       console.log(e);
     }

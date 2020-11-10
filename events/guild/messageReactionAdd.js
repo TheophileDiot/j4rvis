@@ -6,7 +6,6 @@ module.exports = async (bot, messageReaction, user) => {
     const channel_log = message.guild.channels.cache.get("761145607846101003");
 
     if (member.user.bot) return;
-
     if (message.channel.id !== channel_change.id) return;
 
     const enAttenteDeRole = message.guild.roles.cache.find(r => r.name === "En_attente_de_rôle");
@@ -95,11 +94,27 @@ module.exports = async (bot, messageReaction, user) => {
                   msg.delete({ timeout: 2500 });
                 });*/
 
+    if(member.roles.cache.has(ancien.id)){
+      message.channel.send(
+        `${member.user} vous êtes un ancien, vous ne pouvez choisir une activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
+      ) .then(msg => {
+          msg.delete({ timeout: 5000 });
+      });
+
+      await message.reactions.resolve(messageReaction.emoji.id).users.remove(member.user);
+      channel_log.send(`${logTentative} Tentative d'ajout d'un rôle à l'utilisateur ${member.nickname} mais l'utilisateur est un ancien.`);
+    }
+
     if (
-      ["🐉", "🧑‍💻", "🎮", "montage_video", "💼", "💭", "🎲", "Powerpoint", "🌍", "🚴‍♂️", "🪄", "🃏", "📖", "🎦", "📰", "🔨", "intech"].includes(
-        messageReaction.emoji.name) && !member.roles.cache.has(ancien.id)
+      ["intech", "🐉", "🧑‍💻", "🎮", "montage_video", "💼", "💭", "🎲", "Powerpoint", "🌍", "🚴‍♂️", "🪄", "🃏", "📖", "🎦", "📰", "🔨"].includes(
+        messageReaction.emoji.name)
     ) {
       switch (messageReaction.emoji.name) {
+        case "intech":
+          globalCheck(bot, bde, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_de_societe_en_ligne, jeux_de_societe_en_ligne, modo_diapo_expo, diapo_expo, modo_world_building, world_building, modo_velo, velo, modo_magic, magic, modo_poker, poker, modo_lecture, lecture, modo_cine_club, cine_club, modo_journal_intech, journal_intech, modo_batisseur, batisseur, modo_bde, bde, channel_log);
+
+          break;
+        
         case "🐉":
           globalCheck(bot, jdr, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_de_societe_en_ligne, jeux_de_societe_en_ligne, modo_diapo_expo, diapo_expo, modo_world_building, world_building, modo_velo, velo, modo_magic, magic, modo_poker, poker, modo_lecture, lecture, modo_cine_club, cine_club, modo_journal_intech, journal_intech, modo_batisseur, batisseur, modo_bde, bde, channel_log);
 
@@ -184,21 +199,7 @@ module.exports = async (bot, messageReaction, user) => {
           globalCheck(bot, batisseur, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_de_societe_en_ligne, jeux_de_societe_en_ligne, modo_diapo_expo, diapo_expo, modo_world_building, world_building, modo_velo, velo, modo_magic, magic, modo_poker, poker, modo_lecture, lecture, modo_cine_club, cine_club, modo_journal_intech, journal_intech, modo_batisseur, batisseur, modo_bde, bde, channel_log);
 
           break;
-
-        case "intech":
-          globalCheck(bot, bde, member, message, messageReaction, logTentative, logAdd, moderateur, administrateur, ressource, enAttenteDeRole, modo_jdr, jdr, modo_club_tech, club_tech, modo_esport, esport, modo_final_club_pro, final_club_pro, modo_business, business, modo_cafe_philo, cafe_philo, modo_jeux_de_societe_en_ligne, jeux_de_societe_en_ligne, modo_diapo_expo, diapo_expo, modo_world_building, world_building, modo_velo, velo, modo_magic, magic, modo_poker, poker, modo_lecture, lecture, modo_cine_club, cine_club, modo_journal_intech, journal_intech, modo_batisseur, batisseur, modo_bde, bde, channel_log);
-
-          break;
       }
-    } else if (member.roles.cache.has(ancien.id)) {
-      message.channel.send(
-        `${member.user} vous êtes un ancien, vous ne pouvez choisir une activité, veuillez contacter un ${moderateur.name} ou un ${administrateur.name} si vous souhaitez que l'on vous destitue de ce rôle.`
-      ) .then(msg => {
-          msg.delete({ timeout: 5000 });
-      });
-
-      await message.reactions.resolve(messageReaction.emoji.id).users.remove(member.user);
-      channel_log.send(`${logTentative} Tentative d'ajout d'un rôle à l'utilisateur ${member.nickname} mais l'utilisateur est un ancien.`);
     } else {
       if (message.channel.id === channel_change.id){
         await message.reactions.resolve(messageReaction.emoji.id).users.remove(member.user);

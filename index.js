@@ -3,16 +3,7 @@ const http = require('http');
 const express = require('express');
 const app = express();
 const bot = new Client();
-
-app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
-  response.sendStatus(200);
-});
-
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 240000);
+require('dotenv').config();
 
 ["aliases", "commands"].forEach(x => (bot[x] = new Collection()));
 ["command", "event"].forEach(x => require(`./handlers/${x}`)(bot));
