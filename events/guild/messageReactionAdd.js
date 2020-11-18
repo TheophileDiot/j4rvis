@@ -7,7 +7,40 @@ module.exports = async (bot, messageReaction, user) => {
     );
     const channel_log = message.guild.channels.cache.get("761145607846101003");
 
+    const channel_appel = message.guild.channels.cache.get(
+      "770994425395806208"
+    );
+    const channel_log_appel = message.guild.channels.cache.get(
+      "778630279135887361"
+    );
+
     if (member.user.bot) return;
+
+    if (message.channel.id === channel_appel.id) {
+      console.log("oui");
+      if (message.reactions.resolve(messageReaction._emoji.id) === null) {
+        if (messageReaction.emoji.name === "✅") {
+          channel_log_appel.send(
+            `✅ ${member.displayName} a réagis à l'appel!`
+          );
+        } else {
+          channel_log_appel.send(
+            `❌ ${member.displayName} a mal réagis à l'appel! => réactions : ${messageReaction._emoji.name}`
+          );
+          await message.reactions
+            .resolve(messageReaction._emoji.name)
+            .users.remove(member.user);
+        }
+      } else {
+        channel_log_appel.send(
+          `❌ ${member.displayName} a mal réagis à l'appel! => réactions : ${messageReaction._emoji}`
+        );
+        await message.reactions
+          .resolve(messageReaction._emoji.id)
+          .users.remove(member.user);
+      }
+    }
+
     if (message.channel.id !== channel_change.id) return;
 
     const enAttenteDeRole = message.guild.roles.cache.find(
@@ -1408,11 +1441,11 @@ function globalCheck(
           userReactions.forEach((reaction) => {
             if (reaction !== messageReaction) {
               if (message.reactions.resolve(reaction._emoji.id) === null) {
-                await message.reactions
+                message.reactions
                   .resolve(reaction._emoji.name)
                   .users.remove(member.user);
               } else {
-                await message.reactions
+                message.reactions
                   .resolve(reaction._emoji.id)
                   .users.remove(member.user);
               }
@@ -1438,11 +1471,11 @@ function globalCheck(
         });
 
       if (message.reactions.resolve(messageReaction._emoji.id) === null) {
-        await message.reactions
+        message.reactions
           .resolve(messageReaction._emoji.name)
           .users.remove(member.user);
       } else {
-        await message.reactions
+        message.reactions
           .resolve(messageReaction._emoji.id)
           .users.remove(member.user);
       }
@@ -1459,11 +1492,11 @@ function globalCheck(
       });
 
     if (message.reactions.resolve(messageReaction._emoji.id) === null) {
-      await message.reactions
+      message.reactions
         .resolve(messageReaction._emoji.name)
         .users.remove(member.user);
     } else {
-      await message.reactions
+      message.reactions
         .resolve(messageReaction._emoji.id)
         .users.remove(member.user);
     }
