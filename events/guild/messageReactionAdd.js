@@ -17,7 +17,6 @@ module.exports = async (bot, messageReaction, user) => {
     if (member.user.bot) return;
 
     if (message.channel.id === channel_appel.id) {
-      console.log("oui");
       if (message.reactions.resolve(messageReaction._emoji.id) === null) {
         if (messageReaction.emoji.name === "✅") {
           channel_log_appel.send(
