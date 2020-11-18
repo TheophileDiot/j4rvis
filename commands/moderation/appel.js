@@ -32,6 +32,7 @@ module.exports = {
     const channel_appel = message.guild.channels.cache.get(
       "770994425395806208"
     );
+    const channel_appel_list = message.guild.channels.cache.get("778648056228347914");
 
     if (!message.member.roles.cache.has(moderateur.id)) {
       if (message.channel !== channel_appel)
@@ -200,9 +201,9 @@ module.exports = {
 
           msg.delete();
           channel_appel.send("@everyone L'appel est fini !");
-          channel_appel.send(`Les personnes absentes sont : \n${away_str1}`);
+          channel_appel_list.send(`Les personnes absentes sont : \n${away_str1}`);
           if (away_str2 !== "") {
-            channel_appel.send(`${away_str2}`);
+            channel_appel_list.send(`${away_str2}`);
           }
         }, 600000);
       });
