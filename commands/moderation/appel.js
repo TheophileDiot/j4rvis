@@ -32,7 +32,9 @@ module.exports = {
     const channel_appel = message.guild.channels.cache.get(
       "770994425395806208"
     );
-    const channel_appel_list = message.guild.channels.cache.get("778648056228347914");
+    const channel_appel_list = message.guild.channels.cache.get(
+      "778648056228347914"
+    );
 
     if (!message.member.roles.cache.has(moderateur.id)) {
       if (message.channel !== channel_appel)
@@ -149,12 +151,12 @@ module.exports = {
 
         await bot.on("messageReactionAdd", (reaction, user) => {
           if (!user.bot && reaction.emoji.name === "✅") {
-            const membre = message.guild.members.cache.get(user.id);
+            const member = message.guild.members.cache.get(user.id);
 
-            if (membre.nickname === null || membre.nickname === undefined) {
-              presents_arr.push(membre.user.name);
+            if (member.nickname === null || member.nickname === undefined) {
+              presents_arr.push(member.user.name);
             } else {
-              presents_arr.push(membre.nickname);
+              presents_arr.push(member.nickname);
             }
           }
         });
@@ -168,24 +170,25 @@ module.exports = {
 
           presents_arr = presents_arr.sort();
 
-          message.guild.members.cache.forEach((membre) => {
+          message.guild.members.cache.forEach((member) => {
             if (
-              !presents_arr.includes(membre.nickname) &&
-              !membre.user.bot &&
-              !membre.roles.cache.has(ancien.id) &&
-              !membre.roles.cache.has(ressource.id) &&
-              !membre.roles.cache.has(moderateur.id) &&
-              !membre.roles.cache.has(admin.id)
+              !presents_arr.includes(member.nickname) &&
+              !member.user.bot &&
+              !member.roles.cache.has(ancien.id) &&
+              !member.roles.cache.has(ressource.id) &&
+              !member.roles.cache.has(moderateur.id) &&
+              !member.roles.cache.has(admin.id) &&
+              member.id !== "151636658431852545"
             ) {
-              if (membre.nickname === null || membre.nickname === undefined) {
-                away_arr.push(membre.user.tag);
+              if (member.nickname === null || member.nickname === undefined) {
+                away_arr.push(member.user.tag);
               } else {
-                away_arr.push(membre.nickname);
+                away_arr.push(member.nickname);
               }
-              // membre.roles.cache.forEach((role) => {
-              //   membre.roles.remove(role);
+              // member.roles.cache.forEach((role) => {
+              //   member.roles.remove(role);
               // });
-              // membre.roles.add(absent)
+              // member.roles.add(absent)
             }
           });
 
@@ -201,7 +204,9 @@ module.exports = {
 
           msg.delete();
           channel_appel.send("@everyone L'appel est fini !");
-          channel_appel_list.send(`Les personnes absentes sont : \n${away_str1}`);
+          channel_appel_list.send(
+            `Les personnes absentes sont : \n${away_str1}`
+          );
           if (away_str2 !== "") {
             channel_appel_list.send(`${away_str2}`);
           }
