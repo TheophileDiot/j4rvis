@@ -12,7 +12,7 @@ module.exports = {
     aliases: ["si", "serverdesc"],
   },
 
-  run: async (message) => {
+  run: async (bot, message) => {
     try {
       let nbrRoles = 0;
       let nbrVoiceChannels = 0;
